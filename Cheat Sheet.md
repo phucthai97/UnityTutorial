@@ -380,7 +380,7 @@ Nhìn chung, lợi ích từ việc cache các tham chiếu để tăng hiệu s
 4. **Quản Lý Tải Lên và Tải Xuống Dữ Liệu:** Cho phép tải lên dữ liệu (như hình ảnh, video, hoặc dữ liệu khác) và tải xuống dữ liệu từ server.
 5. **Tùy Chỉnh Headers và Method:** Cho phép tùy chỉnh tiêu đề yêu cầu (headers) và phương thức (GET, POST, PUT, DELETE, v.v).
 
-### ****Ví dụ: Sử dụng UnityWebRequest trong Async/Await****
+### **Ví dụ: Sử dụng UnityWebRequest trong Async/Await**
 
 ```csharp
 using UnityEngine;
@@ -582,7 +582,7 @@ GUI (Graphical User Interface) và UI (User Interface) là hai thuật ngữ th�
 
 Trong lĩnh vực phát triển game và ứng dụng, việc hiểu rõ sự khác biệt giữa GUI và UI là quan trọng để thiết kế và tạo ra các giao diện phù hợp và hiệu quả.
 
-### Làm thế nào để quản lý hiệu suất đối tượng 10k đối tượng trên scene game
+### Làm thế nào để quản lý hiệu suất đối tượng 10k đối tượng trên scene game?
 
 - **Việc quản lý hiệu suất cho một game với 10.000 đối tượng (objects) trong Unity là một thách thức lớn, nhưng có thể được tối ưu hóa thông qua một số phương pháp sau:**
     
@@ -744,195 +744,26 @@ Trong lĩnh vực phát triển game và ứng dụng, việc hiểu rõ sự kh
     
 - **Unity's Entity Component System (ECS) là gì?**
     
+    Unity's Entity Component System (ECS) là một phần của Unity DOTS (Data-Oriented Technology Stack), được thiết kế để tận dụng tối đa hiệu suất phần cứng bằng cách tối ưu hóa việc sử dụng dữ liệu và đa luồng. ECS thay đổi cách truyền thống mà các trò chơi được xây dựng trong Unity, từ một mô hình đối tượng hướng đến thành phần (OOP) sang một mô hình hướng dữ liệu (DOD). Mục tiêu của ECS là cung cấp khả năng mở rộng cao và hiệu suất tối ưu cho các dự án Unity, đặc biệt là những dự án yêu cầu xử lý một lượng lớn đối tượng và tương tác trong thế giới game.
     
-
-### In-App Purchase là gì?
-
-- **Khái niệm**
+    ### **Các Thành Phần Chính của ECS**
     
-    Trong Unity, "App Purchase" hay "In-App Purchase" (IAP) là một tính năng cho phép người dùng mua các sản phẩm hoặc dịch vụ bên trong ứng dụng hoặc trò chơi. Điều này bao gồm mọi thứ từ việc mua tiền tệ trong trò chơi, mở khóa các cấp độ mới, đến việc mua vật phẩm hoặc tính năng đặc biệt. Việc tích hợp IAP vào trò chơi hoặc ứng dụng trên Unity giúp nhà phát triển có thể tạo ra nguồn thu từ sản phẩm của họ.
+    - **Entity:** Đại diện cho các đối tượng trong game, nhưng không chứa trực tiếp bất kỳ dữ liệu hoặc hành vi nào. Thay vào đó, entity được sử dụng như một tham chiếu hoặc "ID" để truy cập vào các thành phần dữ liệu.
+    - **Component:** Chứa dữ liệu thô (ví dụ: vị trí, tốc độ, sức khỏe) mà không có bất kỳ logic hoặc hành vi nào. Trong ECS, các thành phần được thiết kế để giữ dữ liệu nhỏ gọn và tối thiểu.
+    - **System:** Định nghĩa logic và hành vi làm việc với các thành phần dữ liệu. Các hệ thống sẽ thực thi logic trên các entity dựa trên các thành phần mà chúng chứa. Ví dụ, một hệ thống di chuyển có thể cập nhật vị trí của tất cả các entity có thành phần vị trí và tốc độ.
     
-    ### Làm Thế Nào Để Thực Hiện IAP Trong Unity:
+    ### **Ưu Điểm của ECS**
     
-    1. **Tích hợp Unity IAP**: Bạn cần tích hợp Unity IAP vào dự án của mình. Unity IAP là một phần của Unity Services, và nó cung cấp một giao diện lập trình ứng dụng (API) thống nhất để tương tác với hệ thống thanh toán của cả Google Play Store và Apple App Store.
-    2. **Cấu hình Sản Phẩm**: Bạn cần xác định các sản phẩm mà bạn muốn bán trong trò chơi, bao gồm tiền tệ trong trò chơi, vật phẩm, hoặc các tính năng đặc biệt.
-    3. **Thiết lập Trên Store**: Đối với mỗi nền tảng (như iOS và Android), bạn cần thiết lập các sản phẩm IAP trên các cổng thanh toán tương ứng của họ, ví dụ như Google Play Console hoặc Apple Developer Console.
-    4. **Lập Trình Xử Lý IAP**: Viết code để xử lý việc mua hàng, kiểm tra tình trạng giao dịch, và cung cấp sản phẩm cho người chơi sau khi giao dịch hoàn tất.
-    5. **Kiểm Tra và Xác Nhận**: Trước khi phát hành, bạn cần kiểm tra tính năng IAP để đảm bảo rằng nó hoạt động chính xác trên tất cả các nền tảng và thiết bị mục tiêu.
-    6. **Tuân Thủ Quy Định**: Quan trọng là phải tuân thủ các quy định của cửa hàng ứng dụng, bao gồm cả việc xử lý hoàn tiền và bảo mật thông tin thanh toán của người dùng.
-- **Cài Đặt và ví dụ**
+    - **Hiệu Suất:** Bằng cách tách biệt dữ liệu và logic, ECS cho phép tối ưu hóa bộ nhớ và sử dụng hiệu quả các tính năng đa luồng của phần cứng hiện đại, giúp tăng hiệu suất đáng kể cho các dự án lớn.
+    - **Mã Sạch và Dễ Quản Lý:** ECS giúp phát triển trò chơi trở nên rõ ràng hơn bằng cách giảm sự phụ thuộc và tăng tính mô-đun của code, làm cho việc bảo trì và mở rộng dự án dễ dàng hơn.
+    - **Khả Năng Mở Rộng:** Với khả năng xử lý hàng triệu đối tượng một cách hiệu quả, ECS là lựa chọn lý tưởng cho các trò chơi có thế giới mở rộng lớn và đòi hỏi một lượng lớn tương tác đồng thời.
     
-    Dưới đây là hướng dẫn chi tiết về cách cài đặt In-App Purchases (IAP) trong Unity:
+    ### **Hạn Chế**
     
-    ### Bước 1: Thiết lập Unity IAP
+    - **Độ Khó:** Việc chuyển từ mô hình OOP sang DOD và ECS có thể khó khăn cho các nhà phát triển quen với cách tiếp cận truyền thống, đòi hỏi một quá trình học tập và thích nghi.
+    - **Tài Liệu và Hỗ Trợ Cộng Đồng:** Khi ECS và DOTS còn tương đối mới, nguồn tài liệu và sự hỗ trợ từ cộng đồng có thể chưa đa dạng và phong phú như với mô hình OOP truyền thống của Unity.
     
-    1. **Mở Unity và Dự án của Bạn**
-        - Khởi động Unity và mở dự án mà bạn muốn thêm IAP.
-    2. **Cài Đặt Unity IAP**
-        - Truy cập vào `Window > Asset Store`.
-        - Tìm kiếm và cài đặt package `Unity IAP`.
-    3. **Kích Hoạt Unity IAP trong Dự Án của Bạn**
-        - Mở `Window > Services`.
-        - Đăng nhập bằng tài khoản Unity của bạn nếu cần.
-        - Chọn dự án của bạn từ danh sách (hoặc tạo mới).
-        - Trong tab Services, chọn `In-App Purchasing` và kích hoạt nó.
-    
-    ### Bước 2: Cấu Hình IAP Trên Nền Tảng Phân Phối
-    
-    1. **Cấu Hình cho Google Play Store (Android)**
-        - Tạo một dự án trong Google Play Console.
-        - Thêm dự án Unity của bạn vào Google Play Console.
-        - Tạo và cấu hình các sản phẩm IAP trong Google Play Console.
-    2. **Cấu Hình cho Apple App Store (iOS)**
-        - Tạo một dự án trong Apple Developer Account.
-        - Thêm dự án Unity của bạn vào App Store Connect.
-        - Tạo và cấu hình các sản phẩm IAP trong App Store Connect.
-    
-    ### Bước 3: Lập Trình Xử Lý IAP trong Unity
-    
-    1. **Tạo Script để Quản Lý IAP**
-        - Tạo một script mới trong Unity và đặt tên nó (ví dụ: `InAppPurchaser`).
-        - Script này sẽ implement interface `IStoreListener` và xử lý việc mua hàng.
-    2. **Khởi Tạo IAP**
-        - Trong script, viết code để khởi tạo IAP và thêm các sản phẩm của bạn.
-    3. **Xử Lý Mua Hàng và Callbacks**
-        - Viết các hàm để xử lý mua hàng và các callbacks như `OnInitialized`, `OnPurchaseFailed`, và `OnPurchaseComplete`.
-    
-    ### Bước 4: Kiểm Tra IAP
-    
-    1. **Sử Dụng Unity Editor để Kiểm Tra**
-        - Unity cho phép bạn kiểm tra IAP trực tiếp trong editor mà không cần triển khai ứng dụng.
-    2. **Kiểm Tra Trên Thiết Bị Thực Tế**
-        - Xây dựng và triển khai ứng dụng của bạn lên thiết bị di động.
-        - Kiểm tra quá trình mua hàng để đảm bảo nó hoạt động đúng cách.
-    
-    ### Bước 5: Tuân Thủ Các Quy Định và Xuất Bản
-    
-    1. **Đảm Bảo Tuân Thủ Các Quy Định Của Cửa Hàng**
-        - Đọc và tuân theo các hướng dẫn của Google Play Store và Apple App Store về IAP.
-    2. **Xuất Bản Ứng Dụng Của Bạn**
-        - Khi đã hoàn tất kiểm tra và hài lòng với tính năng IAP, bạn có thể tiến hành xuất bản ứng dụng trên các cửa hàng.
-    
-    Lưu ý rằng, cấu hình và triển khai IAP có thể phức tạp đôi chút, đặc biệt là với các quy định và yêu cầu cụ thể của từng nền tảng. Hãy chắc chắn rằng bạn đã theo dõi và hiểu rõ các bước cần thiết cho cả Google Play Store và Apple App Store.
-    
-    Dưới đây là một ví dụ cụ thể về cách triển khai In-App Purchases (IAP) trong Unity. Giả sử bạn muốn bán một vật phẩm trong trò chơi, chẳng hạn như "Gói Vàng" để người chơi có thể mua với tiền thật.
-    
-    ### Bước 1: Khởi Tạo Unity IAP
-    
-    Đầu tiên, bạn cần khởi tạo Unity IAP trong dự án của bạn. Điều này thường được thực hiện trong một script khởi tạo khi trò chơi bắt đầu.
-    
-    ```csharp
-    using UnityEngine;
-    using UnityEngine.Purchasing;
-    
-    public class IAPManager : MonoBehaviour, IStoreListener
-    {
-        private static IStoreController storeController;
-        private static IExtensionProvider storeExtensionProvider;
-    
-        private void Start()
-        {
-            if (storeController == null)
-            {
-                InitializePurchasing();
-            }
-        }
-    
-        private void InitializePurchasing()
-        {
-            if (IsInitialized()) return;
-    
-            var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-            builder.AddProduct("gold_pack", ProductType.Consumable);
-    
-            UnityPurchasing.Initialize(this, builder);
-        }
-    
-        private bool IsInitialized()
-        {
-            return storeController != null && storeExtensionProvider != null;
-        }
-    
-        public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
-        {
-            storeController = controller;
-            storeExtensionProvider = extensions;
-        }
-    
-        public void OnInitializeFailed(InitializationFailureReason error)
-        {
-            Debug.Log("IAP Initialization Failed: " + error);
-        }
-        // ... các phương thức khác sẽ đi ở đây ...
-    }
-    
-    ```
-    
-    ### Bước 2: Xử Lý Mua Hàng
-    
-    Bạn cần phải xử lý logic cho việc mua hàng, bao gồm việc khởi tạo mua hàng và xử lý kết quả.
-    
-    ```csharp
-    public void BuyGoldPack()
-    {
-        BuyProductID("gold_pack");
-    }
-    
-    private void BuyProductID(string productId)
-    {
-        if (!IsInitialized()) return;
-    
-        Product product = storeController.products.WithID(productId);
-    
-        if (product != null && product.availableToPurchase)
-        {
-            storeController.InitiatePurchase(product);
-        }
-        else
-        {
-            Debug.Log("BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase");
-        }
-    }
-    
-    public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
-    {
-        Debug.Log($"OnPurchaseFailed: FAIL. Product: {product.definition.storeSpecificId}, PurchaseFailureReason: {failureReason}");
-    }
-    
-    ```
-    
-    ### Bước 3: Xử Lý Kết Quả Mua Hàng
-    
-    Cuối cùng, bạn cần xử lý kết quả mua hàng, cả thành công và thất bại.
-    
-    ```csharp
-    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
-    {
-        if (String.Equals(args.purchasedProduct.definition.id, "gold_pack", StringComparison.Ordinal))
-        {
-            Debug.Log("Purchase Successful: Gold Pack");
-            // Thêm vàng vào tài khoản người chơi ở đây
-        }
-        else
-        {
-            Debug.Log($"ProcessPurchase: FAIL. Unrecognized product: {args.purchasedProduct.definition.id}");
-        }
-    
-        return PurchaseProcessingResult.Complete;
-    }
-    
-    public void OnPurchaseFailed(Product product, PurchaseFailureReason reason)
-    {
-        Debug.Log($"OnPurchaseFailed: Product: {product.definition.storeSpecificId}, Reason: {reason}");
-    }
-    
-    ```
-    
-    ### Kết Luận
-    
-    Trong ví dụ này, khi người chơi chọn mua "Gói Vàng", hệ thống IAP sẽ xử lý yêu cầu và, nếu thành công, sẽ cung cấp vàng cho người chơi trong trò chơi. Bạn cần cài đặt và cấu hình môi trường thử nghiệm của mình trên Google Play Store hoặc Apple App Store để kiểm tra quy trình này.
-    
-    Lưu ý rằng, quy trình triển khai IAP phụ thuộc vào cả các yếu tố kỹ thuật và chính sách của cửa hàng ứng dụng. Hãy chắc chắn rằng bạn đã đọc và tuân thủ tất cả các hướng dẫ
+    Unity ECS là một công nghệ mạnh mẽ và tiên tiến, hứa hẹn mang lại hiệu suất tối ưu và khả năng mở rộng cho các dự án Unity, nhưng cũng đòi hỏi sự đầu tư về thời gian và nỗ lực để hiểu và sử dụng hiệu quả.
     
 
 # Unity
@@ -1373,238 +1204,300 @@ public class DotWeenAni : MonoBehaviour
 
 ## Async
 
-Async/await trong C# là một cách tiếp cận quan trọng để thực hiện các tác vụ không đồng bộ. Đây không phải là các phương thức cụ thể, mà là từ khóa được sử dụng để đánh dấu các phương thức không đồng bộ và tạm dừng thực thi của chúng mà không chặn luồng thực thi chính.
-
-Async/await là một phần mạnh mẽ của C# và .NET, cho phép bạn viết code không đồng bộ một cách dễ đọc và hiệu quả, giảm thiểu vấn đề về việc chặn luồng và làm cho ứng dụng của bạn trở nên mượt mà hơn. 
-
-Dưới đây là một số khái niệm và từ khóa chính liên quan đến async/await trong C#:
-
-### 1. `async` Modifier
-
-- **Định nghĩa:** Từ khóa `async` được thêm vào phương thức để biểu thị rằng phương thức đó là không đồng bộ.
-- **Ví dụ:**
+- Khái niệm
     
-    ```csharp
-    public async Task MyAsyncMethod()
-    {
-        // ...
-    }
+    Bất đồng bộ (asynchronous) trong Unity liên quan đến việc thực hiện các tác vụ mà không cần chờ đợi hoàn thành của nhau. Điều này giúp tối ưu hóa hiệu suất và phản hồi của ứng dụng hoặc game, đặc biệt quan trọng trong việc xử lý các tác vụ nặng như tải tài nguyên, giao tiếp mạng, hoặc xử lý dữ liệu mà không làm gián đoạn luồng chính (main thread) của game.
     
-    ```
+    Trong Unity, bạn có thể sử dụng một số cách tiếp cận khác nhau để thực hiện xử lý bất đồng bộ:
     
-
-### 2. `await` Keyword
-
-- **Định nghĩa:** Từ khóa `await` được sử dụng để tạm dừng thực thi của phương thức không đồng bộ cho đến khi tác vụ không đồng bộ (Task) hoàn tất.
-- **Ví dụ:**
-    
-    ```csharp
-    await SomeAsyncOperation();
-    
-    ```
-    
-
-### 3. `Task`
-
-- **Định nghĩa:** Lớp `Task` đại diện cho một tác vụ không đồng bộ.
-- **Ví dụ:**
-    
-    ```csharp
-    public async Task DoSomethingAsync()
-    {
-        // ...
-    }
-    
-    ```
-    
-
-### 4. `Task<TResult>`
-
-- **Định nghĩa:** `Task<TResult>` là một biến thể của `Task` có thể trả về một giá trị.
-- **Ví dụ:**
-    
-    ```csharp
-    public async Task<int> CalculateValueAsync()
-    {
-        // ...
-    }
-    
-    ```
-    
-
-### 5. `Task.Run()`
-
-- **Định nghĩa:** `Task.Run()` được sử dụng để chạy một tác vụ không đồng bộ trên luồng thread pool.
-- **Ví dụ:**
-    
-    ```csharp
-    var result = await Task.Run(() => CalculateSomething());
-    
-    ```
-    
-
-### 6. `Task.WhenAll()`
-
-- **Định nghĩa:** Chờ cho đến khi tất cả các `Task` đã cho hoàn thành.
-- **Ví dụ:**
-    
-    ```csharp
-    await Task.WhenAll(task1, task2, task3);
-    
-    ```
-    
-
-### 7. `Task.WhenAny()`
-
-- **Định nghĩa:** Chờ cho đến khi bất kỳ `Task` nào trong một tập hợp các `Task` hoàn thành.
-- **Ví dụ:**
-    
-    ```csharp
-    await Task.WhenAny(task1, task2);
-    
-    ```
-    
-
-### 8. `Task.Delay()`
-
-- **Định nghĩa:** Tạo một tác vụ hoàn thành sau một khoảng thời gian xác định.
-- **Ví dụ:**
-    
-    ```csharp
-    await Task.Delay(1000); // Delay 1 giây
-    
-    ```
-    
-
-### 9. `Task.Yield()`
-
-- **Định nghĩa:** Tạm dừng thực thi của async method và trả về luồng điều khiển ngay lập tức.
-- **Ví dụ:**
-    
-    ```csharp
-    await Task.Yield();
-    
-    ```
-    
-
-### 10. `ConfigureAwait(false)`
-
-- **Định nghĩa:** Chỉ định liệu async method có quay trở lại context gọi ban đầu sau khi hoàn thành hay không.
-- **Ví dụ:**
-    
-    ```csharp
-    await SomeAsyncMethod().ConfigureAwait(false);
-    
-    ```
-    
-
-### 11. Asynchronous Stream (`IAsyncEnumerable<T>`)
-
-- **Định nghĩa:** Cho phép bạn viết và sử dụng các stream mà các phần tử được tạo và tiêu thụ một cách không đồng bộ.
-- **Ví dụ:**
-    
-    ```csharp
-    await foreach (var item in GetAsyncEnumerable())
-    {
-        // Xử lý mỗi item khi nó được sản xuất
-    }
-    
-    ```
-    
-
-### 12. `ValueTask` và `ValueTask<TResult>`
-
-- **Định nghĩa:** Các biến thể của `Task` và `Task<TResult>` cho phép hiệu suất cao hơn trong một số tình huống nhất định, đặc biệt là khi kết quả có thể trở thành sẵn có mà không cần chờ đợi thực sự.
-- **Ví dụ:**
-    
-    ```csharp
-    public async ValueTask<int> FastCalculationAsync()
-    {
-        // ...
-    }
-    
-    ```
-    
-
-### 13. Cancellation Token và `Task`
-
-- **Định nghĩa:** Cho phép hủy bỏ một tác vụ không đồng bộ đang chạy.
-- **Ví dụ:**
-    
-    ```csharp
-    var cancellationTokenSource = new CancellationTokenSource();
-    var task = SomeLongRunningTaskAsync(cancellationTokenSource.Token);
-    // Hủy task nếu cần
-    cancellationTokenSource.Cancel();
-    
-    ```
-    
-
-### 14. Async Lambda
-
-- **Định nghĩa:** Lambda không đồng bộ, có thể sử dụng `await` trong nó.
-- **Ví dụ:**
-    
-    ```csharp
-    Func<Task> asyncLambda = async () => { await Task.Delay(1000); };
-    
-    ```
-    
-
-### 15. Async Main Method
-
-- **Định nghĩa:** Cho phép phương thức `Main` của ứng dụng console chạy không đồng bộ.
-- **Ví dụ:**
-    
-    ```csharp
-    public static async Task Main(string[] args)
-    {
-        await SomeAsyncOperation();
-    }
-    
-    ```
-    
-
-### 16. Async Constructors
-
-- **Chú Ý:** Trong C#, không thể tạo async constructors trực tiếp. Tuy nhiên, bạn có thể sử dụng một phương thức factory async để khởi tạo một đối tượng một cách không đồng bộ.
-- **Ví dụ:**
-    
-    ```csharp
-    public class MyClass
-    {
-        private MyClass() { }
-        public static async Task<MyClass> CreateAsync()
+    1. **Coroutines**: Unity cung cấp khái niệm coroutine, cho phép bạn tạm dừng thực thi của một hàm trong một khoảng thời gian, sau đó tiếp tục mà không chặn luồng chính. Coroutines thường được sử dụng cho các hoạt động như chờ đợi thời gian, tải tài nguyên, hoặc thực hiện các hành động kéo dài qua nhiều khung hình (frame).
+        
+        ```csharp
+        IEnumerator ExampleCoroutine()
         {
-            var myClass = new MyClass();
-            await myClass.InitializeAsync();
-            return myClass;
+            // thực hiện một số công việc
+            yield return new WaitForSeconds(1);
+            // tiếp tục sau khi chờ
         }
-        private async Task InitializeAsync() { /* Async initialization logic */ }
-    }
+        
+        ```
+        
+    2. **Async/Await**: Từ phiên bản 2017, Unity đã hỗ trợ async/await của C#. Điều này cho phép bạn viết mã bất đồng bộ một cách rõ ràng và dễ đọc, sử dụng từ khóa `async` và `await`. Điều này rất hữu ích cho các hoạt động như giao tiếp mạng, đọc/ghi tập tin, hoặc bất kỳ tác vụ nào có thể mất thời gian dài.
+        
+        ```csharp
+        async void ExampleAsyncFunction()
+        {
+            var result = await SomeLongRunningTask();
+            // Code sau khi task hoàn thành
+        }
+        
+        ```
+        
+    3. **Threads**: Unity cũng hỗ trợ luồng (threading), cho phép bạn chạy mã song song với luồng chính. Tuy nhiên, sử dụng luồng trong Unity đòi hỏi cẩn thận vì Unity Engine không an toàn với thread và chỉ một số API có thể được gọi từ các thread ngoài luồng chính.
+    4. **Job System**: Unity cung cấp Job System, một phương pháp để thực hiện tính toán song song hiệu quả. Nó giúp tối ưu hóa sử dụng CPU đa lõi mà không gặp rủi ro liên quan đến việc sử dụng luồng truyền thống.
     
-    ```
+    Việc lựa chọn phương pháp bất đồng bộ nào phụ thuộc vào yêu cầu cụ thể của dự án, cũng như sự phức tạp và mức độ tương tác với Unity Engine. Coroutines và async/await thường được ưa chuộng cho các tác vụ thông thường vì chúng dễ sử dụng và ít rủi ro hơn so với việc quản lý trực tiếp các thread.
     
-
-### 17. Exception Handling
-
-- **Định nghĩa:** Xử lý ngoại lệ trong các tác vụ không đồng bộ.
-- **Ví dụ:**
+- Luồng là gì?
     
-    ```csharp
-    try
-    {
-        await SomeAsyncMethod();
-    }
-    catch (Exception ex)
-    {
-        // Xử lý ngoại lệ
-    }
+    Trong lập trình đa luồng, khái niệm "luồng chính" (main thread) và "luồng phụ" (worker or background thread) là cơ bản nhưng quan trọng. Để hiểu rõ hơn, chúng ta hãy xem xét từng khái niệm:
     
-    ```
+    ### **Luồng Chính (Main Thread)**
     
-
-Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để xử lý các hoạt động không đồng bộ trong ứng dụng C#, giúp việc lập trình trở nên dễ dàng và rõ ràng hơn, đặc biệt trong môi trường đa luồng và các tác vụ chờ đợi dài hạn.
+    1. **Định Nghĩa**: Luồng chính là luồng mà hệ điều hành sử dụng để khởi chạy ứng dụng. Đây là luồng chính yếu và quan trọng nhất trong ứng dụng.
+    2. **Vai Trò trong Ứng Dụng**:
+        - Trong các ứng dụng GUI (giao diện người dùng đồ họa), luồng chính thường xử lý các sự kiện của giao diện người dùng, như các cú nhấp chuột, vẽ giao diện, và cập nhật trạng thái giao diện.
+        - Trong game và ứng dụng sử dụng Unity, luồng chính xử lý hầu hết các tương tác và cập nhật liên quan đến game, bao gồm cả việc vẽ đồ họa, xử lý nhập liệu, và cập nhật vật lý.
+    3. **Tính Chất**:
+        - Tất cả các sự kiện giao diện người dùng và đồ họa thường phải được xử lý trên luồng chính.
+        - Nếu luồng chính bị chặn hoặc trì hoãn bởi các tác vụ tính toán nặng, điều này có thể dẫn đến việc ứng dụng không phản hồi và giao diện người dùng trở nên không mượt mà.
+    
+    ### **Luồng Phụ (Worker or Background Thread)**
+    
+    1. **Định Nghĩa**: Các luồng phụ là những luồng được tạo ra và quản lý bởi ứng dụng, ngoài luồng chính. Chúng thực hiện các tác vụ không cần thiết phải thực hiện trên luồng chính.
+    2. **Vai Trò trong Ứng Dụng**:
+        - Các luồng phụ thường được sử dụng để xử lý các tác vụ nặng như truy cập mạng, đọc/ghi tập tin, hoặc các phép tính phức tạp, giúp không làm chậm luồng chính.
+        - Chúng cho phép thực hiện đa nhiệm bằng cách xử lý nhiều tác vụ cùng lúc mà không làm chậm quá trình xử lý của giao diện người dùng.
+    3. **Tính Chất**:
+        - Các tác vụ thực hiện trên luồng phụ có thể không ảnh hưởng trực tiếp đến giao diện người dùng.
+        - Cần cẩn thận khi trao đổi dữ liệu giữa luồng chính và các luồng phụ để tránh các vấn đề về đồng bộ hóa và trạng thái chia sẻ.
+    
+    ### **Tóm Lược**
+    
+    - **Luồng Chính**: Điểm khởi đầu của ứng dụng, xử lý giao diện người dùng và các hoạt động chính của ứng dụng hoặc game.
+    - **Luồng Phụ**: Được tạo để xử lý các tác vụ độc lập, giúp giảm tải và không làm chậm luồng chính.
+- Async với Coroutine trong Unity
+    
+    
+- Một số khái niệm và từ khóa chính liên quan đến async/await trong C#
+    
+    ### 1. `async` Modifier
+    
+    - **Định nghĩa:** Từ khóa `async` được thêm vào phương thức để biểu thị rằng phương thức đó là không đồng bộ.
+    - **Ví dụ:**
+        
+        ```csharp
+        public async Task MyAsyncMethod()
+        {
+            // ...
+        }
+        
+        ```
+        
+    
+    ### 2. `await` Keyword
+    
+    - **Định nghĩa:** Từ khóa `await` được sử dụng để tạm dừng thực thi của phương thức không đồng bộ cho đến khi tác vụ không đồng bộ (Task) hoàn tất.
+    - **Ví dụ:**
+        
+        ```csharp
+        await SomeAsyncOperation();
+        
+        ```
+        
+    
+    ### 3. `Task`
+    
+    - **Định nghĩa:** Lớp `Task` đại diện cho một tác vụ không đồng bộ.
+    - **Ví dụ:**
+        
+        ```csharp
+        public async Task DoSomethingAsync()
+        {
+            // ...
+        }
+        
+        ```
+        
+    
+    ### 4. `Task<TResult>`
+    
+    - **Định nghĩa:** `Task<TResult>` là một biến thể của `Task` có thể trả về một giá trị.
+    - **Ví dụ:**
+        
+        ```csharp
+        public async Task<int> CalculateValueAsync()
+        {
+            // ...
+        }
+        
+        ```
+        
+    
+    ### 5. `Task.Run()`
+    
+    - **Định nghĩa:** `Task.Run()` được sử dụng để chạy một tác vụ không đồng bộ trên luồng thread pool.
+    - **Ví dụ:**
+        
+        ```csharp
+        var result = await Task.Run(() => CalculateSomething());
+        
+        ```
+        
+    
+    ### 6. `Task.WhenAll()`
+    
+    - **Định nghĩa:** Chờ cho đến khi tất cả các `Task` đã cho hoàn thành.
+    - **Ví dụ:**
+        
+        ```csharp
+        await Task.WhenAll(task1, task2, task3);
+        
+        ```
+        
+    
+    ### 7. `Task.WhenAny()`
+    
+    - **Định nghĩa:** Chờ cho đến khi bất kỳ `Task` nào trong một tập hợp các `Task` hoàn thành.
+    - **Ví dụ:**
+        
+        ```csharp
+        await Task.WhenAny(task1, task2);
+        
+        ```
+        
+    
+    ### 8. `Task.Delay()`
+    
+    - **Định nghĩa:** Tạo một tác vụ hoàn thành sau một khoảng thời gian xác định.
+    - **Ví dụ:**
+        
+        ```csharp
+        await Task.Delay(1000); // Delay 1 giây
+        
+        ```
+        
+    
+    ### 9. `Task.Yield()`
+    
+    - **Định nghĩa:** Tạm dừng thực thi của async method và trả về luồng điều khiển ngay lập tức.
+    - **Ví dụ:**
+        
+        ```csharp
+        await Task.Yield();
+        
+        ```
+        
+    
+    ### 10. `ConfigureAwait(false)`
+    
+    - **Định nghĩa:** Chỉ định liệu async method có quay trở lại context gọi ban đầu sau khi hoàn thành hay không.
+    - **Ví dụ:**
+        
+        ```csharp
+        await SomeAsyncMethod().ConfigureAwait(false);
+        
+        ```
+        
+    
+    ### 11. Asynchronous Stream (`IAsyncEnumerable<T>`)
+    
+    - **Định nghĩa:** Cho phép bạn viết và sử dụng các stream mà các phần tử được tạo và tiêu thụ một cách không đồng bộ.
+    - **Ví dụ:**
+        
+        ```csharp
+        await foreach (var item in GetAsyncEnumerable())
+        {
+            // Xử lý mỗi item khi nó được sản xuất
+        }
+        
+        ```
+        
+    
+    ### 12. `ValueTask` và `ValueTask<TResult>`
+    
+    - **Định nghĩa:** Các biến thể của `Task` và `Task<TResult>` cho phép hiệu suất cao hơn trong một số tình huống nhất định, đặc biệt là khi kết quả có thể trở thành sẵn có mà không cần chờ đợi thực sự.
+    - **Ví dụ:**
+        
+        ```csharp
+        public async ValueTask<int> FastCalculationAsync()
+        {
+            // ...
+        }
+        
+        ```
+        
+    
+    ### 13. Cancellation Token và `Task`
+    
+    - **Định nghĩa:** Cho phép hủy bỏ một tác vụ không đồng bộ đang chạy.
+    - **Ví dụ:**
+        
+        ```csharp
+        var cancellationTokenSource = new CancellationTokenSource();
+        var task = SomeLongRunningTaskAsync(cancellationTokenSource.Token);
+        // Hủy task nếu cần
+        cancellationTokenSource.Cancel();
+        
+        ```
+        
+    
+    ### 14. Async Lambda
+    
+    - **Định nghĩa:** Lambda không đồng bộ, có thể sử dụng `await` trong nó.
+    - **Ví dụ:**
+        
+        ```csharp
+        Func<Task> asyncLambda = async () => { await Task.Delay(1000); };
+        
+        ```
+        
+    
+    ### 15. Async Main Method
+    
+    - **Định nghĩa:** Cho phép phương thức `Main` của ứng dụng console chạy không đồng bộ.
+    - **Ví dụ:**
+        
+        ```csharp
+        public static async Task Main(string[] args)
+        {
+            await SomeAsyncOperation();
+        }
+        
+        ```
+        
+    
+    ### 16. Async Constructors
+    
+    - **Chú Ý:** Trong C#, không thể tạo async constructors trực tiếp. Tuy nhiên, bạn có thể sử dụng một phương thức factory async để khởi tạo một đối tượng một cách không đồng bộ.
+    - **Ví dụ:**
+        
+        ```csharp
+        public class MyClass
+        {
+            private MyClass() { }
+            public static async Task<MyClass> CreateAsync()
+            {
+                var myClass = new MyClass();
+                await myClass.InitializeAsync();
+                return myClass;
+            }
+            private async Task InitializeAsync() { /* Async initialization logic */ }
+        }
+        
+        ```
+        
+    
+    ### 17. Exception Handling
+    
+    - **Định nghĩa:** Xử lý ngoại lệ trong các tác vụ không đồng bộ.
+    - **Ví dụ:**
+        
+        ```csharp
+        try
+        {
+            await SomeAsyncMethod();
+        }
+        catch (Exception ex)
+        {
+            // Xử lý ngoại lệ
+        }
+        
+        ```
+        
+    
+    Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để xử lý các hoạt động không đồng bộ trong ứng dụng C#, giúp việc lập trình trở nên dễ dàng và rõ ràng hơn, đặc biệt trong môi trường đa luồng và các tác vụ chờ đợi dài hạn.
+    
 
 ## Thao tác tranform GameObject
 
@@ -1746,7 +1639,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
 - Coroutines thường được sử dụng để thực hiện các hoạt động mà bạn muốn trải dài qua nhiều khung hình (frame), chẳng hạn như hoạt ảnh, đợi một khoảng thời gian trước khi thực hiện hành động, hoặc thực hiện các yêu cầu bất đồng bộ.
 - Khi một **Gameobject** bị **destroy** hoặc **disable** rồi thì tất cả **Coroutine** đính ****theo nó sẽ dừng hoạt động.
 
-****`WaitUntil`** 
+**`WaitUntil`** 
 
 - Là một class trong Unity dùng trong coroutines để tạm dừng việc thực thi của coroutine cho đến khi một điều kiện nhất định được thỏa mãn.
 - Ví dụ:
@@ -1756,7 +1649,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
     ```
     
 
-****`WaitWhile`****
+**`WaitWhile`**
 
 - Tạm dừng coroutine cho đến khi một điều kiện nhất định trở nên sai.
     
@@ -1765,7 +1658,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
     ```
     
 
-****`StartCoroutine`****
+**`StartCoroutine`**
 
 - Tạm dừng coroutine cho đến khi coroutine khác hoàn thành.
     
@@ -1774,7 +1667,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
     ```
     
 
-****`WaitForSeconds`****
+**`WaitForSeconds`**
 
 - Tạm dừng coroutine trong một khoảng thời gian cố định (tính bằng giây).
     
@@ -1783,7 +1676,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
     ```
     
 
-****`WaitForFixedUpdate`****
+**`WaitForFixedUpdate`**
 
 - Tạm dừng coroutine cho đến lần cập nhật vật lý (physics update) tiếp theo.
     
@@ -1792,7 +1685,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
     ```
     
 
-****`WaitForEndOfFrame`****
+**`WaitForEndOfFrame`**
 
 - Tạm dừng coroutine cho đến khi kết thúc khung hình hiện tại.
     
@@ -1801,7 +1694,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
     ```
     
 
-****`WWW`****
+**`WWW`**
 
 - Tạm dừng coroutine cho đến khi hoàn thành yêu cầu mạng. (Lưu ý: **`WWW`** đã lỗi thời và nên thay thế bằng **`UnityWebRequest`**).
 
@@ -1809,7 +1702,7 @@ Async/await mang đến cách tiếp cận mạnh mẽ và linh hoạt để x�
 yield return new WWW(url);
 ```
 
-****`AsyncOperation`****
+**`AsyncOperation`**
 
 - Dùng cho các hoạt động không đồng bộ như tải cảnh (scene) hoặc tài nguyên.
     
@@ -1856,8 +1749,6 @@ yield return new WWW(url);
     
     Lưu ý: Tiến trình tải cảnh (**`asyncLoad.progress`**) thường đạt tới giá trị tối đa là 0.9 hoặc 90% khi cảnh gần như đã được tải xong, và chỉ chuyển sang hoàn thành (isDone = true) khi cảnh đã hoàn toàn sẵn sàng.
     
-
-## FireBase
 
 ## Vector
 
@@ -1920,7 +1811,262 @@ string vectorAsString = vector.ToString("F2");
 
 ### Input mouse
 
-### Input system
+- **1. Sử Dụng Event System và Physics Raycaster (cho UI và Game Objects)**
+    
+    Để sử dụng Event System và Physics Raycaster cho việc xử lý click chuột trên UI và game objects trong Unity, bạn cần thực hiện các bước sau đây. Ví dụ này giúp bạn hiểu cách thiết lập môi trường để xử lý các sự kiện như click chuột một cách hiệu quả.
+    
+    ### Bước 1: Thêm Event System vào Scene
+    
+    1. **Kiểm tra Event System**: Trước tiên, kiểm tra xem scene của bạn đã có `EventSystem` chưa. Nếu chưa, bạn cần thêm một vào.
+    2. **Thêm EventSystem**: Trong Unity Editor, bạn có thể thêm `EventSystem` bằng cách chọn `GameObject` > `UI` > `Event System`. Unity sẽ tự động thêm một `EventSystem` mới nếu bạn tạo một UI element mới và scene chưa có sẵn `EventSystem`.
+    
+    ### Bước 2: Thêm Physics Raycaster
+    
+    - **Với Camera 3D**: Đảm bảo rằng camera chính của bạn có một `Physics Raycaster` component để phát hiện các click chuột trên game objects. Nếu camera của bạn chưa có, thêm nó vào bằng cách chọn camera trong hierarchy, sau đó chọn `Add Component` trong Inspector và tìm `Physics Raycaster`.
+    - **Với Camera 2D**: Nếu bạn đang làm việc trong một môi trường 2D, bạn sẽ cần `Physics 2D Raycaster` thay vì `Physics Raycaster`. Quy trình thêm component tương tự như trên.
+    
+    ### Bước 3: Xử Lý Sự Kiện Click với IPointerClickHandler
+    
+    Để xử lý sự kiện click trên một UI element hoặc game object, bạn sẽ cần tạo một script mới thực hiện interface `IPointerClickHandler`.
+    
+    1. **Tạo Script Mới**: Tạo một C# script mới, ví dụ `ClickableObject.cs`.
+    2. **Implement Interface**: Sửa đổi script để implement `IPointerClickHandler` và định nghĩa phương thức `OnPointerClick(PointerEventData eventData)`.
+    
+    ```csharp
+    using UnityEngine;
+    using UnityEngine.EventSystems; // Đừng quên thêm namespace này
+    
+    public class ClickableObject : MonoBehaviour, IPointerClickHandler
+    {
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Debug.Log(gameObject.name + " was clicked.");
+            // Thêm logic xử lý click vào đây
+        }
+    }
+    ```
+    
+    1. **Gắn Script vào GameObject hoặc UI Element**: Gắn script `ClickableObject` vào game object hoặc UI element mà bạn muốn xử lý sự kiện click. Đối với game objects, đảm bảo rằng chúng có một Collider (2D hoặc 3D tùy thuộc vào loại project của bạn).
+    
+    ### Bước 4: Kiểm Tra
+    
+    - Chạy game và thử click vào object hoặc UI element mà bạn đã gắn script. Bạn sẽ thấy thông báo log trong console nếu mọi thứ hoạt động đúng.
+    
+    ### Lưu Ý
+    
+    - Đối với các UI element, `EventSystem` và `Raycaster` sẽ tự động xử lý việc gửi sự kiện click chuột tới đối tượng, miễn là bạn đã thiết lập chúng đúng cách.
+    - Đối với game objects, `Physics Raycaster` hoặc `Physics 2D Raycaster` trên camera sẽ làm cho hệ thống sự kiện có thể tương tác với các game objects thông qua collider của chúng.
+- **2. Sử Dụng Interface IPointerClickHandler**
+    
+    ### Bước 1: Tạo Script để Xử Lý Click Chuột
+    
+    Tạo một script mới trong Unity và đặt tên là `ClickHandler` hoặc bất kỳ tên nào bạn thích. Sau đó, mở script đó và thêm mã sau:
+    
+    ```csharp
+    using UnityEngine;
+    using UnityEngine.EventSystems; // Import thư viện này để sử dụng IPointerClickHandler
+    
+    public class ClickHandler : MonoBehaviour, IPointerClickHandler
+    {
+        // Phương thức này được gọi khi GameObject được click
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Debug.Log(gameObject.name + " was clicked.");
+            // Thêm logic xử lý khi click vào đây
+        }
+    }
+    ```
+    
+    ### Bước 2: Gắn Script vào GameObject
+    
+    - Chọn GameObject mà bạn muốn xử lý sự kiện click trong Unity Editor.
+    - Gắn script `ClickHandler` vào GameObject đó bằng cách kéo và thả script vào GameObject trong Inspector, hoặc bằng cách chọn GameObject, mở Inspector, chọn `Add Component`, và tìm script `ClickHandler`.
+    
+    ### Bước 3: Đảm Bảo GameObject Có Collider
+    
+    - Để `IPointerClickHandler` hoạt động, GameObject cần phải có một Collider (Collider2D hoặc Collider dành cho 3D).
+    - Thêm Collider vào GameObject nếu nó chưa có. Điều này cho phép Unity phát hiện sự kiện click chuột trên đối tượng.
+    
+    ### Bước 4: Kiểm Tra Trong Game
+    
+    - Chạy game trong Unity Editor và thử click vào GameObject mà bạn đã gắn script. Bạn sẽ thấy thông báo trong Console mỗi khi click vào GameObject đó.
+    
+    ### Lưu Ý
+    
+    - Đối với UI elements (như Button, Image, v.v.), Unity đã tự động hỗ trợ sự kiện click thông qua `EventSystem`. Bạn chỉ cần sử dụng `IPointerClickHandler` nếu bạn muốn xử lý sự kiện click một cách tùy chỉnh hoặc trên các GameObject không phải là UI element.
+    - Đối với việc sử dụng `IPointerClickHandler` trên GameObjects không phải UI, bạn cần đảm bảo rằng có `EventSystem` và `Physics Raycaster` hoặc `Physics 2D Raycaster` (tùy thuộc vào loại project) được thêm vào scene để có thể phát hiện và xử lý các sự kiện.
+- **3. Raycasting**
+    
+    Raycasting có thể được sử dụng để xử lý click chuột trên các đối tượng trong Unity, cho phép bạn xác định đối tượng nào được click dựa trên vị trí của chuột trên màn hình và đối tượng nằm dọc theo tia (ray) được phóng từ vị trí đó.
+    
+    ### Bước 1: Tạo Script để Xử Lý Click Chuột
+    
+    Tạo một script mới trong Unity và đặt tên là `MouseRaycastHandler`. Mở script và thêm mã sau:
+    
+    ```csharp
+    using UnityEngine;
+    
+    public class MouseRaycastHandler : MonoBehaviour
+    {
+        void Update()
+        {
+            // Kiểm tra nếu người dùng nhấn nút chuột trái
+            if (Input.GetMouseButtonDown(0))
+            {
+                // Chuyển đổi vị trí chuột từ tọa độ màn hình sang tọa độ thế giới
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+    
+                // Thực hiện raycast
+                if (Physics.Raycast(ray, out hit))
+                {
+                    // Kiểm tra đối tượng mà tia raycast chạm vào
+                    Debug.Log("You clicked on " + hit.collider.gameObject.name);
+    
+                    // Bạn cũng có thể thực hiện hành động tùy chỉnh với đối tượng bị click
+                    // Ví dụ: hit.collider.gameObject.GetComponent<YourComponent>().YourMethod();
+                }
+            }
+        }
+    }
+    ```
+    
+    ### Bước 2: Áp Dụng Script vào Scene
+    
+    - Gắn script `MouseRaycastHandler` vào một GameObject trong scene, thường là GameObject `Camera` hoặc một GameObject dùng để xử lý logic chung trong game.
+    
+    ### Bước 3: Đảm Bảo Đối Tượng Có Collider
+    
+    - Để raycast có thể phát hiện và tương tác với các đối tượng, chúng cần phải có Collider. Đảm bảo rằng tất cả các đối tượng bạn muốn click vào trong game đều có Collider được gắn vào.
+    
+    ### Bước 4: Kiểm Tra Trong Game
+    
+    - Chạy game trong Unity Editor và thử click vào các đối tượng khác nhau mà bạn muốn tương tác. Bạn sẽ thấy tên của đối tượng được click hiện ra trong Console, nếu raycast đã chạm vào Collider của chúng.
+    
+    ### Lưu Ý
+    
+    - Đoạn code trên sử dụng `Physics.Raycast` để phát hiện đối tượng 3D. Nếu bạn làm việc với 2D, bạn cần sử dụng `Physics2D.Raycast` và sử dụng `RaycastHit2D` thay vì `RaycastHit`.
+    - Bạn có thể tinh chỉnh raycast bằng cách thêm tham số khoảng cách tối đa hoặc sử dụng LayerMasks để hạn chế các đối tượng mà raycast có thể tương tác.
+
+### Input keyboad
+
+- **1. Sử Dụng Input.GetKey, Input.GetKeyDown, và Input.GetKeyUp**
+    - **Input.GetKey:** Kiểm tra liên tục trong mỗi frame xem một phím cụ thể có đang được giữ xuống hay không. Thích hợp cho các hành động cần duy trì liên tục, như di chuyển.
+    - **Input.GetKeyDown:** Chỉ trả về **`true`** trong frame đầu tiên người dùng nhấn phím xuống. Thích hợp cho các hành động cần thực hiện một lần, như nhảy hoặc bắn.
+    - **Input.GetKeyUp:** Chỉ trả về **`true`** trong frame đầu tiên người dùng thả phím ra. Thích hợp cho các hành động cần một phản ứng khi ngừng nhấn phím, như dừng bắn.
+    
+    ```csharp
+    csharpCopy code
+    void Update() {
+        if (Input.GetKey(KeyCode.W)) {
+            // Di chuyển lên
+        }
+    
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            // Nhảy
+        }
+    
+        if (Input.GetKeyUp(KeyCode.S)) {
+            // Dừng
+        }
+    }
+    ```
+    
+- **2. Sử Dụng Input.GetAxis và Input.GetAxisRaw**
+    
+    Unity cung cấp một hệ thống Virtual Axis, được cấu hình trong Input Manager, cho phép bạn xử lý input từ bàn phím một cách linh hoạt và trừu tượng hóa.
+    
+    - **Input.GetAxis:** Trả về một giá trị liên tục trong khoảng -1 đến 1 dựa trên trục cấu hình (ví dụ, Horizontal hoặc Vertical). Nó bao gồm một số "smoothing" để giá trị tăng/giảm một cách mượt mà.
+    - **Input.GetAxisRaw:** Tương tự như **`GetAxis`** nhưng không có "smoothing", trả về -1, 0, hoặc 1 ngay lập tức khi phím được nhấn hoặc thả ra.
+    
+    ```csharp
+    csharpCopy code
+    void Update() {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+    
+        // Di chuyển dựa trên giá trị trục
+    }
+    ```
+    
+- **3. Sử Dụng Input System Mới**
+    
+    Để sử dụng Input System mới của Unity cho việc xử lý input từ bàn phím, bạn cần thực hiện một số bước cơ bản sau đây. Lưu ý rằng Input System mới yêu cầu Unity 2019.1 trở lên và cần được cài đặt qua Package Manager.
+    
+    ### Bước 1: Cài Đặt Input System Mới
+    
+    1. Mở Unity Editor và đi tới `Window` > `Package Manager`.
+    2. Tìm kiếm gói `Input System` và nhấp vào `Install`.
+    
+    ### Bước 2: Tạo Input Actions
+    
+    1. Trong Project Explorer, nhấp chuột phải và chọn `Create` > `Input Actions` để tạo một file mới cho input actions. Đặt tên cho nó, ví dụ `PlayerInputActions`.
+    2. Mở file `PlayerInputActions` bạn vừa tạo. Trong cửa sổ Input Actions Editor, bạn có thể thêm các actions và gán các phím tương ứng cho mỗi action. Ví dụ, bạn có thể tạo một action `Move` với binding tới các phím mũi tên hoặc WASD.
+    
+    ### Bước 3: Sử Dụng Input Actions trong Script
+    
+    1. Tạo một script mới, ví dụ `PlayerController.cs`, và mở nó trong editor của bạn.
+    2. Trong script, khai báo và sử dụng `PlayerInputActions` để đọc giá trị nhập từ bàn phím.
+    
+    Đây là một ví dụ cơ bản về cách làm:
+    
+    ```csharp
+    using UnityEngine;
+    using UnityEngine.InputSystem;
+    
+    public class PlayerController : MonoBehaviour
+    {
+        private PlayerInputActions playerInputActions;
+        private Vector2 move;
+    
+        private void Awake()
+        {
+            playerInputActions = new PlayerInputActions();
+        }
+    
+        private void OnEnable()
+        {
+            playerInputActions.Enable();
+            playerInputActions.Player.Move.performed += OnMovePerformed;
+            playerInputActions.Player.Move.canceled += OnMoveCanceled;
+        }
+    
+        private void OnDisable()
+        {
+            playerInputActions.Disable();
+            playerInputActions.Player.Move.performed -= OnMovePerformed;
+            playerInputActions.Player.Move.canceled -= OnMoveCanceled;
+        }
+    
+        private void OnMovePerformed(InputAction.CallbackContext context)
+        {
+            move = context.ReadValue<Vector2>();
+        }
+    
+        private void OnMoveCanceled(InputAction.CallbackContext context)
+        {
+            move = Vector2.zero;
+        }
+    
+        private void Update()
+        {
+            // Sử dụng giá trị 'move' để di chuyển nhân vật, ví dụ:
+            transform.Translate(move * Time.deltaTime);
+        }
+    }
+    
+    ```
+    
+    ### Bước 4: Gắn Script vào GameObject
+    
+    - Gắn script `PlayerController` vào GameObject mà bạn muốn di chuyển dựa trên input từ bàn phím.
+    
+    ### Lưu Ý
+    
+    - Đảm bảo rằng bạn đã kích hoạt Input System mới trong `Edit` > `Project Settings` > `Player` > `Other Settings` và chọn Input System Package thay vì Input Manager cũ.
+    - Input System mới cho phép bạn cấu hình các đầu vào phức tạp hơn và xử lý chúng một cách linh hoạt trong các scenario đa nền tảng.
+
+## Raycast
 
 ## Di chuyển đối tượng
 
@@ -2458,7 +2604,7 @@ public class PlayerScript : MonoBehaviour
     }
     ```
     
-- ****`RequireComponent`**** tự động thêm các component phụ thuộc vào game object để tránh trường hợp lỗi khi setup sai
+- **`RequireComponent`** tự động thêm các component phụ thuộc vào game object để tránh trường hợp lỗi khi setup sai
     
     Trong Unity, **`RequireComponent`** là một thuộc tính (attribute) được sử dụng để yêu cầu tự động thêm các thành phần (component) bổ sung vào một đối tượng khi nó được gắn vào trong cảnh (scene). Điều này giúp đảm bảo rằng đối tượng sẽ luôn có các thành phần cần thiết để hoạt động đúng cách.
     
@@ -2482,11 +2628,182 @@ public class PlayerScript : MonoBehaviour
     Điều này giúp đảm bảo rằng khi chúng ta sử dụng **`PlayerController`**, các thành phần **`Rigidbody`** và **`Collider`** sẽ luôn có sẵn và có thể được truy cập và sử dụng trong script mà không cần phải thêm chúng thủ công vào từng đối tượng.
     
 
-## UI Canvas
+## UI
 
-### Cài đặt canvas
+### Canvas
 
-### Thao tác với các UI
+### TextMeshProUGUI
+
+- 1. Đếm số dòng hiển thị
+    
+    ```csharp
+    public class CountTMPUGUILines : MonoBehaviour
+    {
+        public TextMeshProUGUI logText; // Tham chiếu đến TextMeshProUGUI
+    
+        int CountLines()
+        {
+            if (logText.textInfo == null)
+                return 0;
+    
+            // Đợi cho đến khi TextMeshPro cập nhật layout
+            logText.ForceMeshUpdate();
+    				
+    				//Đếm số dòng hiển thị trên TextMeshPro
+            int lineCount = logText.textInfo.lineCount;
+            return lineCount;
+        }
+    }
+    ```
+    
+- 2. Lấy ký tự dòng đầu tiên
+    
+    ```csharp
+    public class Example : MonoBehaviour
+    {
+        public TextMeshProUGUI textMeshProUGUI;
+    
+        void Start()
+        {
+            // Lấy thông tin về văn bản được hiển thị
+            TMP_TextInfo textInfo = textMeshProUGUI.textInfo;
+    
+            // Xác định chỉ số của dòng cụ thể bạn quan tâm (ở đây, chúng ta sẽ lấy dòng đầu tiên)
+            int startLineIndex = 0;
+    
+            // Kiểm tra xem startLineIndex có hợp lệ hay không
+            if (startLineIndex < textInfo.lineCount)
+            {
+                // Lấy chỉ số của ký tự đầu tiên của dòng đó
+                int startIndex = textInfo.lineInfo[startLineIndex].firstCharacterIndex;
+                
+                // Hiển thị kết quả
+                Debug.Log("Chỉ số của ký tự đầu tiên của dòng " + startLineIndex + " là: " + startIndex);
+            }
+            else
+                Debug.LogWarning("startLineIndex không hợp lệ.");
+        }
+    }
+    ```
+    
+- 3. Thay đổi màu trong TextMeshPro
+    
+    ```csharp
+    public TextMeshProUGUI textComponent; // Tham chiếu đến TextMeshProUGUI trong Inspector
+    
+        void Start()
+        {
+            // Tạo chuỗi văn bản với màu sắc và kích thước khác nhau cho mỗi dòng
+            string multiColorAndSizeText = 
+                "<color=#FF0000><size=24>Đây là dòng màu đỏ, kích thước 24.</size></color>\n" +
+                "<color=#00FF00><size=30>Đây là dòng màu xanh lá, kích thước 30.</size></color>\n" +
+                "<color=#0000FF><size=36>Đây là dòng màu xanh dương, kích thước 36.</size></color>\n" +
+                "<color=#FFFF00><size=40>Đây là dòng màu vàng, kích thước 40.</size></color>";
+    
+            // Áp dụng chuỗi văn bản vào textComponent
+            textComponent.text = multiColorAndSizeText;
+        }
+    ```
+    
+
+### RectTransform
+
+- Canh chỉnh co dãn Anchor Presets bằng code
+    
+    Để điều chỉnh các giá trị co dãn (padding) của một `RectTransform` để có các khoảng cách cụ thể từ các cạnh của đối tượng cha sau khi đã set nó để co giãn theo tất cả các hướng, bạn cần thiết lập các giá trị `offsetMin` và `offsetMax`. `offsetMin` xác định khoảng cách từ góc dưới bên trái của `RectTransform` đến góc dưới bên trái của anchor box, và `offsetMax` xác định khoảng cách từ góc trên bên phải của `RectTransform` đến góc trên bên phải của anchor box.
+    
+    Dưới đây là cách bạn có thể thiết lập các khoảng cách này để có `Top = 200`, `Bottom = 200`, `Left = 0`, và `Right = 0`:
+    
+    ```csharp
+    using UnityEngine;
+    
+    public class AdjustRectTransformPadding : MonoBehaviour
+    {
+        void Start()
+        {
+            RectTransform rectTransform = GetComponent<RectTransform>();
+    
+            // Đã thiết lập rectTransform để co giãn theo tất cả các hướng
+            rectTransform.anchorMin = new Vector2(0, 0);
+            rectTransform.anchorMax = new Vector2(1, 1);
+    
+            // Thiết lập khoảng cách từ các cạnh
+            float left = 0;
+            float right = 0;
+            float top = 200;
+            float bottom = 200;
+    
+            // Vì offsetMin và offsetMax hoạt động ngược với intuition (ví dụ: giá trị âm để 'đẩy' nội dung ra xa từ cạnh),
+            // chúng ta cần phải đặt chúng như sau:
+            rectTransform.offsetMin = new Vector2(left, bottom); // offsetMin = (left, bottom)
+            rectTransform.offsetMax = new Vector2(-right, -top); // offsetMax = (-right, -top)
+        }
+    }
+    
+    ```
+    
+    Ở đây:
+    
+    - `offsetMin.x` và `offsetMin.y` được thiết lập tương ứng với `left` và `bottom` padding từ các cạnh của anchor box.
+    - `offsetMax.x` và `offsetMax.y` cần được thiết lập với giá trị âm khi bạn muốn `right` và `top` padding, do `offsetMax` đo khoảng cách từ các cạnh trên và phải của anchor box đến `RectTransform`. Điều này có nghĩa là, để có khoảng cách `200` pixels từ top và bottom, bạn cần đặt `offsetMax.y` thành `200`.
+    
+    Hãy nhớ rằng khi bạn đang làm việc với `RectTransform`, giá trị `offsetMin` và `offsetMax` thực sự là `(left, bottom)` và `(-right, -top)` tương ứng, không phải là `(left, top)` và `(right, bottom)` như bạn có thể mong đợi. Điều này là do hệ thống tọa độ của Unity, nơi gốc tọa độ (0,0) nằm ở góc dưới bên trái của màn hình.
+    
+- Kéo dãn RectTransform
+    
+    Trong Unity, **`RectTransform.anchorMin`** và **`RectTransform.anchorMax`** là hai thuộc tính quan trọng được sử dụng để xác định vị trí của một đối tượng UI trong không gian mẹo (local space) của cha mẹo (parent space). Hai thuộc tính này định nghĩa một hình chữ nhật (rect) mà đối tượng UI sẽ mở rộng tới và neo vào trong khung (viewport) của cha mẹ.
+    
+    ![Untitled](Cheat%20Sheet%2012dc564325ed4472b688f4729dc13ff5/Untitled.png)
+    
+    - **`anchorMin`**: Xác định điểm neo dưới cùng bên trái của hình chữ nhật (ví dụ: (0, 0) là góc dưới cùng bên trái và (1, 1) là góc trên cùng bên phải). Giá trị này là một Vector2 có các thành phần nằm trong khoảng từ 0 đến 1, mô tả vị trí tương đối của neo so với cha mẹo.
+    - **`anchorMax`**: Xác định điểm neo trên cùng bên phải của hình chữ nhật (cũng như **`anchorMin`**, giá trị này là một Vector2 với các thành phần từ 0 đến 1).
+    
+    Để thực hiện việc kéo dãn `RectTransform` thông qua code trong Unity, dưới đây là các ví dụ mã cho ba trường hợp bạn đã yêu cầu:
+    
+    ### 1. Kéo Dãn Về 4 Hướng
+    
+    Để kéo dãn `RectTransform` về 4 hướng, tức là cho phép nó tự động mở rộng hoặc co lại để phù hợp với kích thước của parent:
+    
+    ```csharp
+    RectTransform rectTransform = GetComponent<RectTransform>();
+    rectTransform.anchorMin = new Vector2(0, 0);
+    rectTransform.anchorMax = new Vector2(1, 1);
+    
+    ```
+    
+    ### 2. Kéo Dãn Top-Bottom với Bên Phải
+    
+    Để kéo dãn `RectTransform` từ trên xuống dưới và giữ nó cố định ở bên phải của parent:
+    
+    ```csharp
+    RectTransform rectTransform = GetComponent<RectTransform>();
+    rectTransform.anchorMin = new Vector2(1, 0); // Cố định bên phải, kéo dài từ dưới lên
+    rectTransform.anchorMax = new Vector2(1, 1); // Giữ nguyên
+    ```
+    
+    ### 3. Kéo Dãn 2 Bên Left-Right với Nằm Trên Top
+    
+    Để kéo dãn `RectTransform` từ trái sang phải và giữ nó cố định ở phía trên của parent:
+    
+    ```csharp
+    RectTransform rectTransform = GetComponent<RectTransform>();
+    rectTransform.anchorMin = new Vector2(0, 1); // Cố định phía trên, kéo dài từ trái qua phải
+    rectTransform.anchorMax = new Vector2(1, 1); // Giữ nguyên
+    // Đặt offset để không có padding ở hai bên và đặt một khoảng cách cố định từ trê
+    ```
+    
+    ### 4. Kéo Dãn 2 Bên Left-Right với Nằm Trên Top
+    
+    Để kéo dãn `RectTransform` từ trái sang phải và giữ nó cố định ở phía dưới của parent:
+    
+    ```csharp
+     // Thiết lập anchorMin thành (0, 0) để neo đối tượng vào góc dưới cùng bên trái của cha mẹo
+     rectTransform.anchorMin = new Vector2(0f, 0f);
+    
+    // Thiết lập anchorMax thành (1, 0) để neo đối tượng vào góc dưới cùng bên phải của cha mẹo
+    rectTransform.anchorMax = new Vector2(1f, 0f);
+    ```
+    
 
 ## Animation
 
@@ -2653,6 +2970,19 @@ Kết luận, việc hiểu và sử dụng đúng cách tùy chọn sRGB trong 
 
 ### AlphaSource in Advanced
 
+Trong Unity, tùy chọn "Alpha Source" trong mục mở rộng "Advanced" của Texture 2D có vai trò quan trọng trong việc xác định nguồn của thông tin alpha (độ trong suốt) cho một texture. Thông tin alpha quyết định các phần nào của texture là trong suốt và đến mức độ nào. Dưới đây là những điểm chính về tùy chọn Alpha Source:
+
+1. **Ý Nghĩa của Alpha Source**: Tùy chọn này cho bạn biết thông tin alpha được lấy từ đâu. Trong một texture, thông tin alpha có thể được lưu trữ trong kênh alpha riêng biệt hoặc có thể không tồn tại.
+2. **Các Tùy Chọn Của Alpha Source**:
+    - **None**: Không sử dụng thông tin alpha. Texture này sẽ không có độ trong suốt.
+    - **Input Texture Alpha**: Sử dụng kênh alpha từ chính texture đó. Đây là tùy chọn phổ biến khi bạn muốn texture của mình có các phần trong suốt dựa trên kênh alpha của nó.
+    - **From Gray Scale**: Tạo thông tin alpha từ mức độ xám của texture. Trong trường hợp này, độ sáng của mỗi pixel sẽ quyết định độ trong suốt của nó.
+3. **Ảnh Hưởng Đến Hiển Thị**: Lựa chọn Alpha Source phù hợp ảnh hưởng đến cách texture hiển thị trong game, đặc biệt là về mức độ trong suốt và các hiệu ứng như blending.
+4. **Ứng Dụng Thực Tế**: Nếu bạn có một texture mà bạn muốn các phần nhất định của nó trong suốt (như với các texture cho lá cây, cửa sổ, v.v.), bạn nên sử dụng "Input Texture Alpha". Đối với các texture không cần độ trong suốt, chọn "None" để tối ưu hóa hiệu suất.
+5. **Tối Ưu Hóa**: Lựa chọn Alpha Source đúng cũng giúp tối ưu hóa hiệu suất bằng cách giảm thiểu thông tin không cần thiết. Ví dụ, không cần lưu trữ thông tin alpha cho các texture không yêu cầu độ trong suốt.
+
+Tóm lại, "Alpha Source" là một cài đặt quan trọng cho việc quản lý độ trong suốt của texture trong Unity. Lựa chọn đúng Alpha Source không chỉ ảnh hưởng đến chất lượng đồ họa mà còn ảnh hưởng đến hiệu suất trong game.
+
 ### Alpha Is Transparency
 
 ## Sound
@@ -2666,6 +2996,437 @@ Kết luận, việc hiểu và sử dụng đúng cách tùy chọn sRGB trong 
 ## Các thuộc tính dùng trong Inspector
 
 ## Thao tác với Prefab
+
+## FireBase
+
+### 1. Khái niệm
+
+Firebase là một nền tảng phát triển ứng dụng di động và web được Google phát triển. Nó cung cấp một loạt các công cụ và dịch vụ giúp phát triển, cải thiện chất lượng ứng dụng và tăng trưởng người dùng một cách hiệu quả. Firebase được thiết kế để giúp các nhà phát triển giảm thiểu thời gian cần thiết cho việc phát triển các tính năng phức tạp và tập trung vào trải nghiệm người dùng.
+
+### Các Tính Năng Chính của Firebase:
+
+1. **Firestore Database:** Một cơ sở dữ liệu NoSQL linh hoạt và mở rộng, cho phép bạn lưu trữ và đồng bộ dữ liệu giữa người dùng và ứng dụng của bạn trên thời gian thực.
+2. **Authentication:** Cung cấp một hệ thống xác thực người dùng đơn giản nhưng mạnh mẽ, hỗ trợ đăng nhập qua email/mật khẩu, mạng xã hội (Facebook, Google, Twitter, và nhiều hơn nữa), và đăng nhập ẩn danh.
+3. **Cloud Functions:** Cho phép bạn chạy mã backend mà không cần quản lý server. Các hàm này có thể phản ứng với sự kiện từ Firebase Database, sự kiện xác thực, yêu cầu HTTP, và nhiều hơn nữa.
+4. **Hosting:** Cung cấp hosting tĩnh cho ứng dụng web của bạn với SSL miễn phí và triển khai nhanh chóng.
+5. **Cloud Storage:** Lưu trữ và phục vụ nội dung người dùng, như hình ảnh hoặc video, một cách an toàn.
+6. **Google Analytics:** Một giải pháp phân tích miễn phí giúp bạn hiểu rõ về hành vi người dùng thông qua dữ liệu và báo cáo chi tiết.
+7. **Dynamic Links:** Tạo liên kết đa nền tảng có thể giúp tăng tương tác và sự giữ chân người dùng bằng cách dẫn họ đến bất kỳ vị trí nào trong ứng dụng của bạn.
+8. **Cloud Messaging:** Một dịch vụ gửi thông báo đẩy miễn phí giúp bạn giao tiếp với người dùng trên các nền tảng khác nhau.
+9. **App Distribution và Crash Reporting:** Cung cấp công cụ để phân phối ứng dụng đến người dùng thử nghiệm và báo cáo sự cố, giúp bạn nhanh chóng tìm và sửa chữa lỗi.
+
+Firebase được thiết kế để làm việc cùng lúc trên nhiều nền tảng, bao gồm iOS, Android và web, giúp tạo ra một trải nghiệm người dùng nhất quán và liền mạch trên tất cả các thiết bị. Với Firebase, các nhà phát triển có thể tập trung vào việc tạo ra những trải nghiệm người dùng tuyệt vời mà không cần phải lo lắng về cơ sở hạ tầng phía sau.
+
+### 2. Cài đặt Firebase
+
+Để cài đặt Firebase vào một dự án game Unity, bạn cần theo dõi các bước sau. Firebase cung cấp một loạt các dịch vụ như xác thực người dùng, cơ sở dữ liệu thời gian thực, lưu trữ, và nhiều hơn nữa, mà bạn có thể tích hợp vào ứng dụng Unity của mình để mở rộng khả năng và cải thiện trải nghiệm người dùng.
+
+### Bước 1: Tạo Dự Án Firebase
+
+1. Truy cập [Firebase Console](https://console.firebase.google.com/) và đăng nhập bằng tài khoản Google của bạn.
+2. Tạo một dự án mới hoặc sử dụng dự án hiện có.
+3. Theo dõi quy trình trên trang để thiết lập dự án cho Android hoặc iOS tùy thuộc vào mục tiêu của dự án Unity của bạn.
+
+### Bước 2: Thêm Ứng Dụng Unity vào Dự Án Firebase
+
+1. Trong dự án Firebase của bạn, chọn biểu tượng thêm ứng dụng để chọn nền tảng bạn muốn (Android hoặc iOS).
+2. Điền thông tin cần thiết như ID ứng dụng, và theo hướng dẫn để thêm ứng dụng của bạn.
+3. Tải xuống file cấu hình (`google-services.json` cho Android hoặc `GoogleService-Info.plist` cho iOS) và thêm nó vào thư mục gốc của dự án Unity của bạn.
+
+### Bước 3: Tải và Import SDK Firebase
+
+1. Truy cập trang [Firebase Unity SDK](https://firebase.google.com/docs/unity/setup) và tải xuống SDK.
+2. Mở dự án Unity của bạn và import SDK bằng cách chọn `Assets` > `Import Package` > `Custom Package`, sau đó chọn file SDK bạn vừa tải xuống.
+
+### Bước 4: Cấu Hình Firebase trong Unity
+
+1. Một số dịch vụ Firebase yêu cầu thêm bước cấu hình trong Unity. Đọc tài liệu SDK cụ thể cho dịch vụ bạn muốn sử dụng (ví dụ: Firebase Database, Firebase Auth, v.v.) để biết chi tiết cấu hình.
+2. Nếu cần, cấu hình các quyền trong file `AndroidManifest.xml` hoặc cài đặt dành cho iOS trong Unity để phù hợp với yêu cầu của dịch vụ Firebase bạn muốn sử dụng.
+
+### Bước 5: Sử Dụng Firebase trong Dự Án của Bạn
+
+1. Bạn bây giờ có thể sử dụng các dịch vụ Firebase trong code Unity của mình. Ví dụ, để khởi tạo Firebase Auth, bạn có thể thêm mã như sau vào script của mình:
+
+```csharp
+void Start() {
+    Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+        var dependencyStatus = task.Result;
+        if (dependencyStatus == Firebase.DependencyStatus.Available) {
+            // Firebase is ready for use
+        } else {
+            Debug.LogError($"Could not resolve all Firebase dependencies: {dependencyStatus}");
+        }
+    });
+}
+```
+
+### Lưu Ý
+
+- Đảm bảo rằng bạn đã cập nhật Unity và SDK của các nền tảng mục tiêu (Android, iOS) lên phiên bản mới nhất để tăng khả năng tương thích.
+- Firebase cung cấp tài liệu rõ ràng và chi tiết cho mỗi dịch vụ, vì vậy hãy tham khảo tài liệu chính thức để biết các bước cụ thể và các ví dụ code cho dịch vụ bạn muốn sử dụng.
+
+Bằng cách theo dõi những bước trên, bạn có th
+
+ể dễ dàng tích hợp Firebase vào dự án Unity của mình và bắt đầu tận dụng các dịch vụ mạnh mẽ mà Firebase cung cấp.
+
+### 3. Ví dụ
+
+Để cung cấp một ví dụ cụ thể về cách sử dụng Firebase trong một dự án Unity, chúng ta sẽ xem qua quá trình tích hợp Firebase Authentication. Firebase Authentication giúp dễ dàng thêm xác thực người dùng vào ứng dụng của bạn, hỗ trợ đăng nhập bằng email/mật khẩu, đăng nhập qua Google, Facebook, và nhiều phương thức khác.
+
+### Bước 1: Chuẩn Bị
+
+Đảm bảo bạn đã hoàn thành các bước cơ bản để tích hợp Firebase vào dự án Unity của bạn, bao gồm việc thêm file cấu hình `google-services.json` hoặc `GoogleService-Info.plist` vào thư mục Assets của dự án Unity.
+
+### Bước 2: Import Firebase Authentication SDK
+
+Sau khi tải Firebase Unity SDK, import module Firebase Authentication vào dự án Unity của bạn.
+
+### Bước 3: Khởi Tạo Firebase và Authentication
+
+Tạo một script mới và thêm mã sau để khởi tạo Firebase và Authentication:
+
+```csharp
+using Firebase;
+using Firebase.Auth;
+using UnityEngine;
+
+public class FirebaseAuthExample : MonoBehaviour
+{
+    private FirebaseAuth auth;
+
+    void Start()
+    {
+        // Khởi tạo Firebase Auth
+        auth = FirebaseAuth.DefaultInstance;
+    }
+}
+
+```
+
+### Bước 4: Đăng Ký và Đăng Nhập Người Dùng
+
+Thêm các phương thức để đăng ký và đăng nhập người dùng sử dụng email và mật khẩu:
+
+```csharp
+public void RegisterUser(string email, string password)
+{
+    auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        if (task.IsCanceled)
+        {
+            Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+            return;
+        }
+        if (task.IsFaulted)
+        {
+            Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            return;
+        }
+
+        // Người dùng mới đã được tạo
+        FirebaseUser newUser = task.Result;
+        Debug.LogFormat("Firebase user created successfully: {0} ({1})", newUser.DisplayName, newUser.UserId);
+    });
+}
+
+public void LoginUser(string email, string password)
+{
+    auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        if (task.IsCanceled)
+        {
+            Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+            return;
+        }
+        if (task.IsFaulted)
+        {
+            Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            return;
+        }
+
+        // Người dùng đã đăng nhập thành công
+        FirebaseUser user = task.Result;
+        Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
+    });
+}
+
+```
+
+### Bước 5: Gọi Các Phương Thức Đăng Ký/Đăng Nhập
+
+Bây giờ, bạn có thể gọi các phương thức `RegisterUser` và `LoginUser` từ UI hoặc bất kỳ đâu trong code của bạn, cung cấp email và mật khẩu do người dùng nhập.
+
+### Bước 6: Xử Lý Lỗi và Feedback
+
+Trong thực tế, bạn cần thêm xử lý lỗi chi tiết hơn và cung cấp feedback phù hợp cho người dùng (ví dụ, thông qua UI) khi có lỗi xảy ra hoặc khi quá trình đăng ký/đăng nhập thành công.
+
+### Lưu Ý
+
+- Mã trên sử dụng các phương thức bất đồng bộ (`ContinueWith`) để không chặn luồng chính của Unity.
+- Firebase cung cấp tài liệu chi tiết và hướng dẫn cho nhiều tính năng khác nữa. Bạn có thể tìm hiểu thêm về cách sử dụng chúng trong dự án Unity của mình trên trang web chính thức của Firebase.
+
+Ví dụ trên chỉ là một cách cơ bản để bắt đầu sử dụng Firebase Authentication trong Unity. Tùy thuộc vào yêu cầu cụ thể của dự án, bạn có thể c
+
+## Appflyer
+
+### 1. Khái niệm
+
+AppFlyer là một nền tảng phân tích và marketing di động, cung cấp các công cụ để theo dõi hiệu suất của ứng dụng di động và chiến dịch quảng cáo. Nó giúp các nhà phát triển ứng dụng, nhà quảng cáo và các tổ chức marketing hiểu rõ về việc người dùng tương tác với ứng dụng của họ như thế nào, từ đó đo lường hiệu quả của các chiến dịch marketing, tối ưu hóa chiến lược quảng cáo, và tăng cường sự giữ chân người dùng.
+
+Các tính năng chính của AppFlyer bao gồm:
+
+1. **Theo dõi và Phân tích Hiệu suất Ứng dụng:** Cung cấp dữ liệu chi tiết về việc người dùng cài đặt và sử dụng ứng dụng, giúp nhà phát triển hiểu được hành vi và sở thích của người dùng.
+2. **Thu thập dữ liệu Tương tác người dùng:** Theo dõi các hành động của người dùng trong ứng dụng, như việc hoàn thành một cấp độ, thực hiện một giao dịch, hoặc chia sẻ ứng dụng.
+3. **Phân tích ROI (Return on Investment) và Hiệu suất Quảng cáo:** Đo lường hiệu quả của chiến dịch quảng cáo dựa trên số lượng cài đặt ứng dụng, hoạt động của người dùng, và doanh thu được tạo ra, giúp tối ưu hóa ngân sách quảng cáo.
+4. **Phân tích Chiến dịch Quảng cáo:** Cung cấp thông tin về nguồn cài đặt (organic và non-organic), giúp nhận biết được kênh marketing nào mang lại hiệu quả tốt nhất.
+5. **Chống Gian lận trong Quảng cáo:** Cung cấp các công cụ để phát hiện và ngăn chặn gian lận quảng cáo, giúp đảm bảo rằng ngân sách quảng cáo được chi tiêu một cách hiệu quả.
+6. **Tích hợp với Nền tảng và Dịch vụ Khác:** AppFlyer có khả năng tích hợp với nhiều nền tảng quảng cáo, công cụ phân tích, mạng xã hội, và các dịch vụ khác, giúp quản lý chiến dịch marketing một cách toàn diện.
+
+Nói chung, AppFlyer giúp các doanh nghiệp trong việc quảng cáo di động có thể theo dõi, phân tích, và tối ưu hóa chiến dịch của họ một cách chính xác và hiệu quả, từ đó tăng cường doanh thu và sự tương tác của người dùng với ứng dụng.
+
+### 2. Cài đặt
+
+### Bước 1: Tải SDK của AppFlyer cho Unity
+
+1. Truy cập trang GitHub chính thức của AppFlyer hoặc trang web của AppFlyer và tải xuống SDK dành cho Unity.
+2. Giải nén và nhập file `.unitypackage` vào dự án Unity của bạn bằng cách sử dụng `Assets` > `Import Package` > `Custom Package` từ thanh menu của Unity Editor.
+
+### Bước 2: Cấu Hình AppFlyer trong Unity
+
+Sau khi đã nhập SDK, bạn cần cấu hình nó:
+
+1. Mở cấu hình AppFlyer bằng cách chọn `AppFlyer` > `Edit Settings` từ menu.
+2. Điền thông tin cần thiết như App ID (cho iOS) và Dev Key của bạn. Bạn có thể tìm thấy Dev Key trong bảng điều khiển của AppFlyer.
+3. Cấu hình các tùy chọn khác như định dạng log, chế độ sản xuất, và vân vân theo nhu cầu của dự án.
+
+### Bước 3: Khởi Tạo AppFlyer trong Code
+
+Trong script khởi động ứng dụng của bạn, khởi tạo AppFlyer bằng cách gọi tới API của nó. Dưới đây là một ví dụ về cách thực hiện:
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using AppsFlyerSDK;
+
+public class AppsFlyerInitScript : MonoBehaviour
+{
+    void Start()
+    {
+        AppsFlyer.initSDK("YourDevKey", "YourAppID");
+        AppsFlyer.startSDK();
+    }
+}
+```
+
+Thay `"YourDevKey"` và `"YourAppID"` bằng Dev Key và App ID của bạn.
+
+### Bước 4: Theo Dõi Sự Kiện và Doanh Thu
+
+Bạn cũng có thể theo dõi các sự kiện tùy chỉnh và doanh thu bằng cách sử dụng SDK:
+
+```csharp
+AppsFlyer.sendEvent("eventName", eventValues);
+```
+
+Trong đó `"eventName"` là tên của sự kiện bạn muốn theo dõi, và `eventValues` là một dictionary chứa các giá trị liên quan đến sự kiện.
+
+### Bước 5: Xây Dựng và Test Ứng Dụng
+
+- Xây dựng và chạy ứng dụng của bạn trên thiết bị hoặc trình giả lập để kiểm tra việc tích hợp.
+- Sử dụng bảng điều khiển của AppFlyer để xem dữ liệu được thu thập và kiểm tra hiệu quả.
+
+### Lưu Ý
+
+- Đảm bảo rằng bạn đã đọc và tuân theo hướng dẫn cập nhật nhất từ tài liệu chính thức của AppFlyer vì SDK có thể thay đổi qua thời gian.
+- Kiểm tra và tuân thủ các quy định về quyền riêng tư và thu thập dữ liệu như GDPR hoặc CCPA khi sử dụng AppFlyer.
+
+Tích hợp AppFlyer vào ứng dụng Unity của bạn giúp theo dõi hiệu suất và tối ưu hóa các chiến dịch marketing một cách hiệu quả, đồng thời cung cấp insight giá trị về hành vi của người dùng.
+
+## In-App Purchase là gì?
+
+### 1. Khái niệm
+
+Trong Unity, "App Purchase" hay "In-App Purchase" (IAP) là một tính năng cho phép người dùng mua các sản phẩm hoặc dịch vụ bên trong ứng dụng hoặc trò chơi. Điều này bao gồm mọi thứ từ việc mua tiền tệ trong trò chơi, mở khóa các cấp độ mới, đến việc mua vật phẩm hoặc tính năng đặc biệt. Việc tích hợp IAP vào trò chơi hoặc ứng dụng trên Unity giúp nhà phát triển có thể tạo ra nguồn thu từ sản phẩm của họ.
+
+### Làm Thế Nào Để Thực Hiện IAP Trong Unity:
+
+1. **Tích hợp Unity IAP**: Bạn cần tích hợp Unity IAP vào dự án của mình. Unity IAP là một phần của Unity Services, và nó cung cấp một giao diện lập trình ứng dụng (API) thống nhất để tương tác với hệ thống thanh toán của cả Google Play Store và Apple App Store.
+2. **Cấu hình Sản Phẩm**: Bạn cần xác định các sản phẩm mà bạn muốn bán trong trò chơi, bao gồm tiền tệ trong trò chơi, vật phẩm, hoặc các tính năng đặc biệt.
+3. **Thiết lập Trên Store**: Đối với mỗi nền tảng (như iOS và Android), bạn cần thiết lập các sản phẩm IAP trên các cổng thanh toán tương ứng của họ, ví dụ như Google Play Console hoặc Apple Developer Console.
+4. **Lập Trình Xử Lý IAP**: Viết code để xử lý việc mua hàng, kiểm tra tình trạng giao dịch, và cung cấp sản phẩm cho người chơi sau khi giao dịch hoàn tất.
+5. **Kiểm Tra và Xác Nhận**: Trước khi phát hành, bạn cần kiểm tra tính năng IAP để đảm bảo rằng nó hoạt động chính xác trên tất cả các nền tảng và thiết bị mục tiêu.
+6. **Tuân Thủ Quy Định**: Quan trọng là phải tuân thủ các quy định của cửa hàng ứng dụng, bao gồm cả việc xử lý hoàn tiền và bảo mật thông tin thanh toán của người dùng.
+
+### 2. Cài đặt
+
+### Bước 1: Thiết lập Unity IAP
+
+1. **Mở Unity và Dự án của Bạn**
+    - Khởi động Unity và mở dự án mà bạn muốn thêm IAP.
+2. **Cài Đặt Unity IAP**
+    - Truy cập vào `Window > Asset Store`.
+    - Tìm kiếm và cài đặt package `Unity IAP`.
+3. **Kích Hoạt Unity IAP trong Dự Án của Bạn**
+    - Mở `Window > Services`.
+    - Đăng nhập bằng tài khoản Unity của bạn nếu cần.
+    - Chọn dự án của bạn từ danh sách (hoặc tạo mới).
+    - Trong tab Services, chọn `In-App Purchasing` và kích hoạt nó.
+
+### Bước 2: Cấu Hình IAP Trên Nền Tảng Phân Phối
+
+1. **Cấu Hình cho Google Play Store (Android)**
+    - Tạo một dự án trong Google Play Console.
+    - Thêm dự án Unity của bạn vào Google Play Console.
+    - Tạo và cấu hình các sản phẩm IAP trong Google Play Console.
+2. **Cấu Hình cho Apple App Store (iOS)**
+    - Tạo một dự án trong Apple Developer Account.
+    - Thêm dự án Unity của bạn vào App Store Connect.
+    - Tạo và cấu hình các sản phẩm IAP trong App Store Connect.
+
+### Bước 3: Lập Trình Xử Lý IAP trong Unity
+
+1. **Tạo Script để Quản Lý IAP**
+    - Tạo một script mới trong Unity và đặt tên nó (ví dụ: `InAppPurchaser`).
+    - Script này sẽ implement interface `IStoreListener` và xử lý việc mua hàng.
+2. **Khởi Tạo IAP**
+    - Trong script, viết code để khởi tạo IAP và thêm các sản phẩm của bạn.
+3. **Xử Lý Mua Hàng và Callbacks**
+    - Viết các hàm để xử lý mua hàng và các callbacks như `OnInitialized`, `OnPurchaseFailed`, và `OnPurchaseComplete`.
+
+### Bước 4: Kiểm Tra IAP
+
+1. **Sử Dụng Unity Editor để Kiểm Tra**
+    - Unity cho phép bạn kiểm tra IAP trực tiếp trong editor mà không cần triển khai ứng dụng.
+2. **Kiểm Tra Trên Thiết Bị Thực Tế**
+    - Xây dựng và triển khai ứng dụng của bạn lên thiết bị di động.
+    - Kiểm tra quá trình mua hàng để đảm bảo nó hoạt động đúng cách.
+
+### Bước 5: Tuân Thủ Các Quy Định và Xuất Bản
+
+1. **Đảm Bảo Tuân Thủ Các Quy Định Của Cửa Hàng**
+    - Đọc và tuân theo các hướng dẫn của Google Play Store và Apple App Store về IAP.
+2. **Xuất Bản Ứng Dụng Của Bạn**
+    - Khi đã hoàn tất kiểm tra và hài lòng với tính năng IAP, bạn có thể tiến hành xuất bản ứng dụng trên các cửa hàng.
+
+Lưu ý rằng, cấu hình và triển khai IAP có thể phức tạp đôi chút, đặc biệt là với các quy định và yêu cầu cụ thể của từng nền tảng. Hãy chắc chắn rằng bạn đã theo dõi và hiểu rõ các bước cần thiết cho cả Google Play Store và Apple App Store.
+
+Dưới đây là một ví dụ cụ thể về cách triển khai In-App Purchases (IAP) trong Unity. Giả sử bạn muốn bán một vật phẩm trong trò chơi, chẳng hạn như "Gói Vàng" để người chơi có thể mua với tiền thật.
+
+### Bước 1: Khởi Tạo Unity IAP
+
+Đầu tiên, bạn cần khởi tạo Unity IAP trong dự án của bạn. Điều này thường được thực hiện trong một script khởi tạo khi trò chơi bắt đầu.
+
+```csharp
+using UnityEngine;
+using UnityEngine.Purchasing;
+
+public class IAPManager : MonoBehaviour, IStoreListener
+{
+    private static IStoreController storeController;
+    private static IExtensionProvider storeExtensionProvider;
+
+    private void Start()
+    {
+        if (storeController == null)
+        {
+            InitializePurchasing();
+        }
+    }
+
+    private void InitializePurchasing()
+    {
+        if (IsInitialized()) return;
+
+        var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        builder.AddProduct("gold_pack", ProductType.Consumable);
+
+        UnityPurchasing.Initialize(this, builder);
+    }
+
+    private bool IsInitialized()
+    {
+        return storeController != null && storeExtensionProvider != null;
+    }
+
+    public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+    {
+        storeController = controller;
+        storeExtensionProvider = extensions;
+    }
+
+    public void OnInitializeFailed(InitializationFailureReason error)
+    {
+        Debug.Log("IAP Initialization Failed: " + error);
+    }
+    // ... các phương thức khác sẽ đi ở đây ...
+}
+
+```
+
+### Bước 2: Xử Lý Mua Hàng
+
+Bạn cần phải xử lý logic cho việc mua hàng, bao gồm việc khởi tạo mua hàng và xử lý kết quả.
+
+```csharp
+public void BuyGoldPack()
+{
+    BuyProductID("gold_pack");
+}
+
+private void BuyProductID(string productId)
+{
+    if (!IsInitialized()) return;
+
+    Product product = storeController.products.WithID(productId);
+
+    if (product != null && product.availableToPurchase)
+    {
+        storeController.InitiatePurchase(product);
+    }
+    else
+    {
+        Debug.Log("BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase");
+    }
+}
+
+public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
+{
+    Debug.Log($"OnPurchaseFailed: FAIL. Product: {product.definition.storeSpecificId}, PurchaseFailureReason: {failureReason}");
+}
+
+```
+
+### Bước 3: Xử Lý Kết Quả Mua Hàng
+
+Cuối cùng, bạn cần xử lý kết quả mua hàng, cả thành công và thất bại.
+
+```csharp
+public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
+{
+    if (String.Equals(args.purchasedProduct.definition.id, "gold_pack", StringComparison.Ordinal))
+    {
+        Debug.Log("Purchase Successful: Gold Pack");
+        // Thêm vàng vào tài khoản người chơi ở đây
+    }
+    else
+    {
+        Debug.Log($"ProcessPurchase: FAIL. Unrecognized product: {args.purchasedProduct.definition.id}");
+    }
+
+    return PurchaseProcessingResult.Complete;
+}
+
+public void OnPurchaseFailed(Product product, PurchaseFailureReason reason)
+{
+    Debug.Log($"OnPurchaseFailed: Product: {product.definition.storeSpecificId}, Reason: {reason}");
+}
+
+```
+
+### Kết Luận
+
+Trong ví dụ này, khi người chơi chọn mua "Gói Vàng", hệ thống IAP sẽ xử lý yêu cầu và, nếu thành công, sẽ cung cấp vàng cho người chơi trong trò chơi. Bạn cần cài đặt và cấu hình môi trường thử nghiệm của mình trên Google Play Store hoặc Apple App Store để kiểm tra quy trình này.
+
+Lưu ý rằng, quy trình triển khai IAP phụ thuộc vào cả các yếu tố kỹ thuật và chính sách của cửa hàng ứng dụng. Hãy chắc chắn rằng bạn đã đọc và tuân thủ tất cả các hướng dẫn
 
 # C#
 
@@ -2744,7 +3505,7 @@ Kết luận, việc hiểu và sử dụng đúng cách tùy chọn sRGB trong 
 - Tìm gameObject trong scene bằng lệnh `GameObject.Find()`
 - Muốn tắt hoặc mở một **GameObject** ta dùng **GameObject.SetActive(false/true)**
 - Muốn tắt hoặc mở một Component ta dùng `Component.active` **= false/true**
-- Lưu ý!!! Lệnh **break** chỉ thoát khỏi 1 vòng lặp.
+- Lưu ý!!! Lệnh **break** chỉ thoát ra khỏi 1 vòng lặp.
 - Lưu ý!!! đổi tên biến được set `SerializeField` → Object bên ngoài sẽ bị missing → phải gán lại
 - Lưu ý!!! Không nên lạm dụng `FindObjectOfType()` **đặt ở** void `Awake()` để lấy những đối tượng chưa được tạo trước khi chạy. Vì nếu lệnh `FindObjectOfType()` ****chạy trước khi khởi tạo đối tượng đó sẽ gây ra lỗi **nullreferenceexception**. Vì thế chúng ta nên lấy tại đúng vị trí cần dùng đối tượng đó.
 - Để gộp 2 mảng List<> lại với nhau ta dùng `AddRange()` method
@@ -2770,7 +3531,7 @@ Kết luận, việc hiểu và sử dụng đúng cách tùy chọn sRGB trong 
         
         → Nếu có adding materrial (không để defaut), sửa chỗ **Rendering Mode : Fade**, **Color Mode: Multiply** 
         
-        → Xem ở mục **********Renderer**********, ở gần dưới cuối, chỉnh chỗ Order in Layer.
+        → Xem ở mục **Renderer**, ở gần dưới cuối, chỉnh chỗ Order in Layer.
         
     - Nếu muốn tạo các hạt bắn ra 1 loạt
         
@@ -2806,7 +3567,7 @@ Kết luận, việc hiểu và sử dụng đúng cách tùy chọn sRGB trong 
     - Tuy nhiên ta muốn tùy chỉnh order layer riêng cho từng đối tượng trong UI Canvas. Ta có thể thử Sprite Render.
 - **Video Player**
     1. Nếu muốn tắt âm lượng thì dùng **VideoPlayer.SetDirectAudioMute(0, true)**;
-    2. Nếu xuất hiện lỗi “****AudioSampleProvider buffer overflow.****” tức là audio sample chạy trên scene quá nhiều gây tràn bộ nhớ → kiểm tra các object cần thiết bật audio, nếu không cần thiết thì tắt nó đi bằng cách edit nó trên **Inspector** hoặc dùng lệnh
+    2. Nếu xuất hiện lỗi “**AudioSampleProvider buffer overflow.**” tức là audio sample chạy trên scene quá nhiều gây tràn bộ nhớ → kiểm tra các object cần thiết bật audio, nếu không cần thiết thì tắt nó đi bằng cách edit nó trên **Inspector** hoặc dùng lệnh
         
         ```csharp
         VideoPlayer videoPlayer;
