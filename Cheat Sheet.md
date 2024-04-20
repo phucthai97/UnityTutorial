@@ -2,11 +2,11 @@
 
 # Câu hỏi
 
-### Tôi muốn kiểm soát thứ tự chạy giữa 2 hàm Awake() trong Unity thì làm như thế nào?
+## Tôi muốn kiểm soát thứ tự chạy giữa 2 hàm Awake() trong Unity thì làm như thế nào?
 
 Trong Unity, việc kiểm soát chính xác thứ tự chạy của phương thức `Awake` giữa các đối tượng khác nhau là không thể dựa vào cơ chế mặc định của Unity. Tuy nhiên, có một số cách tiếp cận khác nhau bạn có thể sử dụng để đảm bảo rằng một hành động hoặc phương thức xảy ra sau khi một hành động hoặc phương thức khác đã hoàn tất.
 
-**Phương pháp 1: Sử dụng Flag và `Start`**
+### **Phương pháp 1: Sử dụng Flag và Start**
 
 Một cách để làm điều này là sử dụng một biến flag để kiểm tra xem phương thức trong `Awake` của Đối tượng A đã chạy xong chưa. Sau đó, bạn có thể chờ đến khi flag này được thiết lập trước khi thực hiện hành động trong Đối tượng B.
 
