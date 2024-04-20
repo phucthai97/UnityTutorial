@@ -6,7 +6,7 @@
 
 Trong Unity, việc kiểm soát chính xác thứ tự chạy của phương thức `Awake` giữa các đối tượng khác nhau là không thể dựa vào cơ chế mặc định của Unity. Tuy nhiên, có một số cách tiếp cận khác nhau bạn có thể sử dụng để đảm bảo rằng một hành động hoặc phương thức xảy ra sau khi một hành động hoặc phương thức khác đã hoàn tất.
 
-### Phương pháp 1: Sử dụng Flag và `Start`
+**Phương pháp 1: Sử dụng Flag và `Start`**
 
 Một cách để làm điều này là sử dụng một biến flag để kiểm tra xem phương thức trong `Awake` của Đối tượng A đã chạy xong chưa. Sau đó, bạn có thể chờ đến khi flag này được thiết lập trước khi thực hiện hành động trong Đối tượng B.
 
@@ -53,7 +53,7 @@ public class ObjectB : MonoBehaviour
 }
 ```
 
-### Phương pháp 2: Sử dụng Một Manager hoặc Controller
+**Phương pháp 2: Sử dụng Một Manager hoặc Controller**
 
 Một cách khác là sử dụng một đối tượng quản lý hoặc controller cấp cao để điều khiển thứ tự khởi tạo.
 
@@ -76,7 +76,7 @@ public class InitializationManager : MonoBehaviour
 
 Trong ví dụ này, `InitializationManager` gọi các phương thức khởi tạo của Đối tượng A và B theo thứ tự mong muốn.
 
-### Lưu ý
+**Lưu ý**
 
 Cả hai phương pháp trên đều yêu cầu bạn thiết kế code sao cho không phụ thuộc quá mức vào thứ tự khởi tạo. Điều này giúp làm cho code của bạn linh hoạt và dễ bảo trì hơn.
 
@@ -84,7 +84,7 @@ Cả hai phương pháp trên đều yêu cầu bạn thiết kế code sao cho 
 
 Coroutines và async/await trong lập trình (đặc biệt là trong Unity) là hai cách tiếp cận khác nhau để xử lý các tác vụ không đồng bộ và thời gian. Mỗi cách có ưu và nhược điểm riêng, và được sử dụng trong các tình huống khác nhau. Dưới đây là sự khác biệt cơ bản giữa chúng:
 
-### Coroutines
+**Coroutines**
 
 1. **Định Nghĩa:**
     - Coroutines trong Unity là một cách để thực hiện các tác vụ qua nhiều khung hình mà không chặn tiến trình của game.
@@ -97,7 +97,7 @@ Coroutines và async/await trong lập trình (đặc biệt là trong Unity) l�
 5. **Không Phải Là Một Tính Năng C# Chính Thống:**
     - Là một phần của Unity Engine và không phải là một phần của ngôn ngữ C# mặc định.
 
-### Async/Await
+**Async/Await**
 
 1. **Định Nghĩa:**
     - Async/await là một cách tiếp cận trong C# để thực hiện các tác vụ không đồng bộ, cho phép viết code trông giống như đồng bộ nhưng thực chất là không đồng bộ.
@@ -110,7 +110,7 @@ Coroutines và async/await trong lập trình (đặc biệt là trong Unity) l�
 5. **Là Một Tính Năng C# Chính Thống:**
     - Là một phần của ngôn ngữ C# và có thể sử dụng trong bất kỳ ứng dụng C# nào.
 
-### Khi Nào Sử Dụng?
+**Khi Nào Sử Dụng?**
 
 - **Coroutines:** Tốt cho các tác vụ liên quan đến thời gian trong game, như animations, chờ đợi trước khi thực hiện hành động, hoặc thực hiện một hành động theo khoảng thời gian định trước.
 - **Async/Await:** Hiệu quả cho các tác vụ không đồng bộ không phụ thuộc vào thời gian thực của game, như truy cập mạng, giao tiếp với cơ sở dữ liệu, hoặc đọc/ghi file.
@@ -3240,6 +3240,149 @@ Trong đó `"eventName"` là tên của sự kiện bạn muốn theo dõi, và 
 - Kiểm tra và tuân thủ các quy định về quyền riêng tư và thu thập dữ liệu như GDPR hoặc CCPA khi sử dụng AppFlyer.
 
 Tích hợp AppFlyer vào ứng dụng Unity của bạn giúp theo dõi hiệu suất và tối ưu hóa các chiến dịch marketing một cách hiệu quả, đồng thời cung cấp insight giá trị về hành vi của người dùng.
+
+## Photon Multiplayer
+
+### 1. Cài đặt Photon PUN 2
+
+Photon Unity Networking (PUN) là một trong những giải pháp mạnh mẽ nhất cho việc thêm tính năng multiplayer vào game Unity của bạn. Dưới đây là hướng dẫn từng bước để cài đặt Photon PUN 2 vào dự án Unity của bạn và một số ví dụ cơ bản về cách sử dụng nó.
+
+### Bước 1: Tạo Tài Khoản Photon và Tạo Một Ứng Dụng
+
+1. Đầu tiên, truy cập [trang web của Photon](https://www.photonengine.com/) và tạo một tài khoản nếu bạn chưa có.
+2. Sau khi đăng nhập, truy cập vào bảng điều khiển và tạo một ứng dụng mới. Chọn "Photon PUN" trong danh sách các sản phẩm và điền vào các thông tin cần thiết.
+3. Lưu ý `AppID` của ứng dụng bạn vừa tạo. Bạn sẽ cần nó để cấu hình PUN trong Unity.
+
+### Bước 2: Cài Đặt PUN 2 vào Dự Án Unity
+
+1. Mở dự án Unity của bạn.
+2. Truy cập vào Unity Asset Store và tìm kiếm "PUN 2".
+3. Chọn "PUN 2 - Free" (hoặc phiên bản trả phí nếu bạn cần các tính năng nâng cao hơn) và nhấn "Download" sau đó "Import" để thêm nó vào dự án của bạn.
+
+### Bước 3: Cấu Hình PUN trong Unity
+
+1. Trong Unity, mở `Window > Photon Unity Networking > PUN Wizard` hoặc tìm `PhotonServerSettings` trong thư mục `Resources`.
+2. Dán `AppID` của bạn vào trường AppId Realtime.
+3. Cấu hình các thiết lập khác theo nhu cầu dự án của bạn như server region, protocol,...
+
+### Bước 4: Tạo Một Scene Đơn Giản với PUN
+
+1. **Tạo Scene Mới**: Tạo một scene mới trong Unity và đặt tên cho nó.
+2. **Thêm GameObject Đơn Giản**: Tạo một GameObject mới (ví dụ: một Cube) để dùng làm nhân vật hoặc đối tượng trong game.
+3. **Thêm Photon View**: Chọn GameObject bạn vừa tạo và thêm vào nó một component `PhotonView` từ `Component > Photon > PhotonView`. `PhotonView` là cốt lõi của PUN, cho phép đồng bộ hóa đối tượng giữa các client.
+4. **Script để Điều Khiển**: Tạo một script Unity mới để điều khiển GameObject này. Sử dụng `PhotonView.IsMine` để kiểm tra xem GameObject có được điều khiển bởi player hiện tại hay không và thực hiện các đầu vào từ bàn phím hoặc chuột.
+
+### Bước 5: Kết Nối và Tạo/Tham Gia Phòng
+
+1. **Tạo Script Kết Nối**: Tạo một script mới, ví dụ `NetworkManager`, và sử dụng nó để kết nối với Photon Cloud và tạo hoặc tham gia một phòng.
+2. Sử dụng các phương thức như `PhotonNetwork.ConnectUsingSettings()` để kết nối với Photon và `PhotonNetwork.JoinOrCreateRoom()` để tạo hoặc tham gia một phòng.
+
+### Bước 6: Chạy và Kiểm Tra
+
+- Sau khi cấu hình xong, hãy chạy game trong Unity Editor và kiểm tra xem bạn có thể kết nối và tương tác với các client khác qua Photon hay không.
+
+Đây chỉ là một hướng dẫn cơ bản nhất để bắt đầu với PUN 2. Photon PUN cung cấp một loạt các tính năng và khả năng tùy chỉnh mạnh
+
+### 2. Sử dụng PUN Classic
+
+- Getting started
+    
+    ### Get Start
+    
+    Photon Unity Networking (PUN) là một gói Unity cho các trò chơi đa người chơi. Khả năng ghép đôi linh hoạt giúp người chơi của bạn vào các phòng nơi các đối tượng có thể được đồng bộ hóa qua mạng. RPC, Thuộc tính Tùy chỉnh hoặc các sự kiện "cấp thấp" của Photon chỉ là một số tính năng. Giao tiếp nhanh và (tùy chọn) đáng tin cậy được thực hiện thông qua một hoặc nhiều máy chủ Photon chuyên dụng, vì vậy các máy khách không cần phải kết nối trực tiếp với nhau.
+    
+    ### Một số mã nguồn cần thiết
+    
+    Để tận dụng tối đa PUN, bạn sẽ cần phải lập trình một chút. Trang này sẽ cho bạn thấy một số đoạn mã quan trọng nhưng nó chỉ là một tổng quan hơn là một hướng dẫn.
+    
+    Để bắt đầu một cách đúng đắn, hãy làm theo "PUN Basics Tutorial".
+    
+    ### **Connect and Callbacks**
+    
+    ```csharp
+    PhotonNetwork.ConnectUsingSettings("v1");
+    ```
+    
+    `ConnectUsingSettings` đặt phiên bản trò chơi của máy khách của bạn và sử dụng `PhotonServerSettings` cho mọi thứ khác. Khi bạn chạy điều này, PUN sử dụng các phương thức phản hồi để cho bạn biết khi máy khách đã thiết lập kết nối, tham gia một phòng, v.v.. Giống như các "phương thức ma thuật" của Unity, bạn chỉ cần tìm kiếm tên phương thức phản hồi và triển khai chúng. Ví dụ: `OnConnectedToMaster`.
+    
+    ### Matchmaking (ghép đôi)
+    
+    Trong OnConnectedToMaster, bạn có thể cố gắng tham gia một phòng hiện có hoặc tạo phòng của riêng bạn. Các đoạn mã dưới đây cho thấy các lệnh gọi phương thức có thể để bắt đầu hoặc tham gia trò chơi.
+    
+    ```csharp
+    //Tham gia phòng "someRoom"
+    PhotonNetwork.JoinRoom("someRoom");
+    // Thất bại nếu không có trò chơi nào đang mở. Lỗi gọi lại: OnPhotonJoinRoomFailed
+    ```
+    
+    ```csharp
+    // Cố gắng tham gia bất kỳ trò chơi ngẫu nhiên nào:
+    PhotonNetwork.JoinRandomRoom();
+    // Thất bại nếu không có trò chơi nào đang mở. Lỗi gọi lại: OnPhotonRandomJoinFailed
+    ```
+    
+    ```csharp
+    //Tạo phòng này.
+    PhotonNetwork.CreateRoom("MyMatch");
+    // Thất bại nếu phòng "MyMatch" đã tồn tại và gọi: OnPhotonCreateRoomFailed
+    ```
+    
+    Khi bạn bè muốn chơi cùng nhau và có cách để giao tiếp bên ngoài PUN (ví dụ: với Photon Chat, Facebook), họ có thể đặt một tên phòng và sử dụng JoinOrCreateRoom. Nếu không ai khác nên được ghép vào phòng này, hãy làm cho nó không hiển thị với hệ thống ghép đôi:
+    
+    ```csharp
+    RoomOptions roomOptions = new RoomOptions();
+    roomOptions.IsVisible = false;
+    roomOptions.MaxPlayers = 4;
+    PhotonNetwork.JoinOrCreateRoom(nameEveryFriendKnows, roomOptions, TypedLobby.Default);
+    ```
+    
+    Với `JoinOrCreateRoom`, phòng sẽ được tạo nếu nó không tồn tại, vì vậy không quan trọng ai là người đầu tiên. Nếu phòng đầy, `OnPhotonJoinRoomFailed` sẽ được gọi (nếu bạn đã triển khai nó ở đâu đó).
+    
+    ### Game Logic
+    
+    Các đối tượng GameObject có thể được Khởi tạo (Instantiated) dưới dạng "GameObject có mạng", chúng có một thành phần `PhotonView`. Điều này xác định đối tượng và chủ sở hữu (hoặc người điều khiển). Người chơi đang điều khiển sẽ cập nhật cho những người chơi khác. Các cập nhật liên tục có thể được gửi bằng cách gắn một script vào trường `Observed` của `PhotonView`. Script này phải triển khai `OnPhotonSerializeView` như sau:
+    
+    ```csharp
+    // trong tập lệnh "observered":
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            Vector3 pos = transform.localPosition;
+            stream.Serialize(ref pos);
+        }
+        else
+        {
+            Vector3 pos = Vector3.zero;
+            
+            // pos được điền vào. phải được sử dụng ở đâu đó
+            stream.Serialize(ref pos);  
+        }
+    }
+    ```
+    
+    Các máy khách có thể thực hiện Lời gọi Thủ tục Từ xa trên các đối tượng mạng cụ thể cho bất cứ điều gì xảy ra không thường xuyên:
+    
+    ```csharp
+    // định nghĩa một phương thức có thể được gọi bởi các client khác:
+    [PunRPC]
+    public void OnAwakeRPC(byte myParameter)
+    {
+        //Debug.Log(string.Format("RPC: 'OnAwakeRPC' Parameter: {0} PhotonView: {1}", myParameter, this.photonView));
+    }
+    ```
+    
+    ```csharp
+    // gọi RPC ở một nơi khác
+    photonView.RPC("OnAwakeRPC", PhotonTargets.All, (byte)1);
+    ```
+    
+    Độc lập với GameObject, bạn cũng có thể gửi các sự kiện riêng của mình:
+    
+    ```csharp
+    PhotonNetwork.RaiseEvent(eventCode, eventContent, sendReliable, raiseEventOptions);
+    ```
+    
 
 ## In-App Purchase là gì?
 
